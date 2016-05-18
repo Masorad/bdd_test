@@ -7,6 +7,7 @@ You need to have installed:
 
 Then depending on the browser of you choice:
 - **Firefox**
+
 or
 - **Chrome**
 - **java**
