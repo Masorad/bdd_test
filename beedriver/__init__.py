@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.common import exceptions
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from beedriver.po import RootPageObject
 
 def get_beedriver_class(base=webdriver.Firefox):
@@ -24,12 +23,6 @@ def get_beedriver_class(base=webdriver.Firefox):
                 message='Element "{}" not found after {} seconds.'.format(
                     selector, timeout)
             )
-
-        def __del__(self):
-            try:
-                self.quit()
-            except:
-                pass
 
     return BeeDriver
 

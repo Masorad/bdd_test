@@ -9,16 +9,16 @@ class ChatWindow(PageObject):
 
     def is_online(self):
         status_elem = self.client.find_element_by_xpath(Locators.STATUS)
-        cls = status_elem.get_attribute('class')
+        css_class = status_elem.get_attribute('class')
         
         # the way to learn status is dependent on the window size - WRONG
-        if 'Tmp' in cls: # window is expanded
+        if 'Tmp' in css_class: # window is expanded
             if status_elem.text == 'online':
                 return True
             else:
                 return False
         else: # window is collapsed
-            if 'online' in cls:
+            if 'online' in css_class:
                 return True
             else:
                 return False
