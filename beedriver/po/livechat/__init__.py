@@ -8,5 +8,5 @@ class LiveChat(PageObject):
         self.chat_window = ChatWindow(self, LiveChatLocators.CHAT_WINDOW)
 
     def load(self):
-        self.client.get('http://localhost:8080')
+        self.client.get(self.client.config.livechat_url)
 

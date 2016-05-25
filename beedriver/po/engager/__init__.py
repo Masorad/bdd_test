@@ -10,5 +10,5 @@ class Engager(PageObject):
         #self.care = Care(self, EngagerLocators.CARE)
 
     def load(self):
-        self.client.get('http://be.com')
+        self.client.get(self.client.config.engager_url)
 

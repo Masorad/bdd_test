@@ -10,7 +10,7 @@ from beedriver import get_beedriver_class
 def before_all(context):
     # determine browser
     allowed_browsers = ['firefox', 'chrome']
-    browser = os.getenv('BEHAVE_BROWSER')
+    browser = os.getenv('BEEDRIVER_BROWSER')
     if not browser in allowed_browsers:
         browser = allowed_browsers[0]
 

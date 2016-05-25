@@ -9,5 +9,5 @@ class BrandStatusSwitcher(PageObject):
         self.offline_button = Button(self, Locators.OFFLINE_BUTTON)
 
     def load(self):
-        self.client.get('http://localhost:3000/?testing1234')
+        self.client.get(self.client.config.brand_status_switcher_url)
 

@@ -1,3 +1,5 @@
+import os
+import importlib
 from selenium import webdriver
 from selenium.common import exceptions
 from selenium.webdriver.support.ui import WebDriverWait
@@ -8,7 +10,13 @@ def get_beedriver_class(base=webdriver.Firefox):
     class BeeDriver(base):
 
         def start_client(self):
+            self.config = self.get_config()
             self.po = RootPageObject(self)
+
+        def get_config(self):
+            config = os.getenv('BEEDRIVER_CONFIG') or 'default'
+            config_file = 'beedriver.config.{}'.format(config)
+            return importlib.import_module(config_file)
 
         def is_existing(self, selector):
             try:
