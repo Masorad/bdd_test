@@ -20,8 +20,8 @@ The easiest way is to use Firefox (default browser) with default config (found a
 ```$ behave feature_name.feature```, e.g. ```behave features/livechat_basic_window.feature```
 
 ### Specifying config file
-If you want to specify config file, use `BEEDRIVER_BROWSER` environment variable along with the behave command, e.g.
-```BEEDRIVER_BROWSER=firefox behave feature_name.feature```
+If you want to specify config file, use `BEEDRIVER_CONFIG` environment variable along with the behave command, e.g.
+```BEEDRIVER_CONFIG=default behave feature_name.feature```
 
 ### using Chrome
 Run selenium server, e.g.:
