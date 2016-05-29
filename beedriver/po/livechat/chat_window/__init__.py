@@ -8,20 +8,10 @@ class ChatWindow(PageObject):
         self.start_chat_form = StartChatForm(self, Locators.START_CHAT_FORM)
 
     def is_online(self):
-        status_elem = self.client.find_element_by_xpath(Locators.STATUS)
-        css_class = status_elem.get_attribute('class')
-        
-        # the way to learn status is dependent on the window size - WRONG
-        if 'Tmp' in css_class: # window is expanded
-            if status_elem.text == 'online':
-                return True
-            else:
-                return False
-        else: # window is collapsed
-            if 'online' in css_class:
-                return True
-            else:
-                return False
+        status_elem = self.find()
+        status_attribute = status_elem.get_attribute('data-status')
+
+        return 'ONLINE' in status_attribute
 
     def is_collapsed(self):
         locator = self.base_xpath + Locators.HEADER_COLLAPSED
