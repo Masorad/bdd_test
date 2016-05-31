@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.common import exceptions
 from selenium.webdriver.support.ui import WebDriverWait
 from beedriver.po import RootPageObject
+from beedriver.ac import RootActionChain
 
 def get_beedriver_class(base=webdriver.Firefox):
 
@@ -12,6 +13,7 @@ def get_beedriver_class(base=webdriver.Firefox):
         def start_client(self):
             self.config = self.get_config()
             self.po = RootPageObject(self)
+            self.ac = RootActionChain(self)
 
         def get_config(self):
             config = os.getenv('BEEDRIVER_CONFIG') or 'default'

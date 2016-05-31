@@ -61,10 +61,3 @@ Scenario Outline: brand goes from <init_status> to <end_status> for chat when ch
         | offline       | online        |
         | online        | offline       |
 
-@wip
-Scenario: customer expands collapsed online chat window to see static form
-    Given brand is online for chat
-    When customer opens brand page
-    And customer expands chat window
-    Then chat window should show static form for starting new chat
-

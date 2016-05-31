@@ -7,6 +7,7 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 sys.path.append('../')
 from beedriver import get_beedriver_class
 
+
 def before_all(context):
     # determine browser
     allowed_browsers = ['firefox', 'chrome']
@@ -26,11 +27,16 @@ def before_all(context):
         context.browser_config = dict()
     context.BeeDriver = get_beedriver_class(base)
 
+    context.browsers = dict()
+    browsers = dict()
+    browsers_names = ['engager', 'livechat', 'switcher']
+    for browser_name in browsers_names:
+        context.browsers[browser_name] = dict()
+
 
 def after_scenario(context, scenario):
-    try: context.livechat_browser.quit()
-    except: pass
-
-    try: context.switcher_browser.quit()
-    except: pass
+    for browser_name in context.browsers.keys():
+        for browser_index in context.browsers[browser_name].keys():
+            try: context.browsers[browser_name][browser_index].quit()
+            except: pass
 
