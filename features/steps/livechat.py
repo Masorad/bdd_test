@@ -9,7 +9,7 @@ def customer_opens_brand_page(context):
     livechat_browser.po.livechat.load()
 
 
-@step('customer {resize_action} chat window')
+@step('customer "{resize_action}" chat window')
 def step_impl(context, resize_action):
     valid_resize_actions = {'expands', 'collapses'}
     validate_step_input(resize_action, valid_resize_actions)
@@ -21,7 +21,24 @@ def step_impl(context, resize_action):
         chat_window.collapse()
 
 
-@then('chat window should be {size}')
+@step('customer fills in valid name in chat window online form')
+def step_impl(context):
+    form = context.browsers['livechat']['first'].po.livechat.chat_window.start_chat_form
+    form.wait_for_exist()
+    form.name.set('valid name placeholder')
+    form.submit_button.click()
+
+
+@when('customer submits online form in chat window')
+def customer_submits_online_form_in_chat_window(context):
+    form = context.browsers['livechat']['first'].po.livechat.chat_window.start_chat_form
+    form.wait_for_exist()
+    form.submit_button.click()
+    import time
+    time.sleep(1)
+
+
+@then('chat window should be "{size}"')
 def step_impl(context, size):
     valid_sizes = {'collapsed', 'expanded'}
     validate_step_input(size, valid_sizes)
@@ -33,7 +50,7 @@ def step_impl(context, size):
         assert chat_window.is_expanded() is True
 
 
-@then('chat window status should be {status}')
+@then('chat window status should be "{status}"')
 def step_impl(context, status):
     valid_statuses = {'offline', 'online'}
     validate_step_input(status, valid_statuses)
@@ -45,10 +62,30 @@ def step_impl(context, status):
         assert chat_window.is_online() is False
 
 
-@then('chat window should show static form for starting new chat')
+@then('chat window should show "{status}" form')
+def step_impl(context, status):
+    valid_statuses = {'offline', 'online'}
+    validate_step_input(status, valid_statuses)
+
+    chat_window = context.browsers['livechat']['first'].po.livechat.chat_window
+    if status == 'online':
+        form = chat_window.start_chat_form
+        form.wait_for_exist()
+        form.name.wait_for_exist()
+        form.submit_button.wait_for_exist()
+    elif status == 'offline':
+        form = chat_window.offline_form
+        form.wait_for_exist()
+        form.name.wait_for_exist()
+        form.email.wait_for_exist()
+        form.message.wait_for_exist()
+        form.submit_button.wait_for_exist()
+
+
+@then('chat window should show conversation interface')
 def step_impl(context):
-    start_chat_form = context.browsers['livechat']['first'].po.livechat.chat_window.start_chat_form
-    start_chat_form.wait_for_exist()
-    start_chat_form.name.wait_for_exist()
-    start_chat_form.submit_button.wait_for_exist()
+    chat_window = context.browsers['livechat']['first'].po.livechat.chat_window
+    chat_window.agent_profile.wait_for_exist()
+    chat_window.conversation.wait_for_exist()
+    chat_window.reply_box.wait_for_exist()
 

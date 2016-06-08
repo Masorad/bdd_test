@@ -1,16 +1,20 @@
 from beedriver.po.page_object import PageObject
 from .locators import ChatWindowLocators as Locators
+from .offline_form import OfflineForm
 from .start_chat_form import StartChatForm
 
 class ChatWindow(PageObject):
 
     def init_child_objects(self):
+        self.offline_form = OfflineForm(self, Locators.OFFLINE_FORM)
         self.start_chat_form = StartChatForm(self, Locators.START_CHAT_FORM)
+        self.agent_profile = PageObject(self, Locators.AGENT_PROFILE)
+        self.conversation = PageObject(self, Locators.CONVERSATION)
+        self.reply_box = PageObject(self, Locators.REPLY_BOX)
 
     def is_online(self):
         status_elem = self.find()
         status_attribute = status_elem.get_attribute('data-status')
-
         return 'ONLINE' in status_attribute
 
     def is_collapsed(self):
