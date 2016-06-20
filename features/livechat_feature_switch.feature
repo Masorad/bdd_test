@@ -1,16 +1,17 @@
 Feature: new livechat feature switch
 
-@draft
-Scenario Outline: new livechat feature switch is <new_chat_state>
-    Given new livechat feature switch is <new_chat_feature_state>
-    And brand is offline for chat
-    And customer opens brand page with old chat
-    When brand goes online for chat
-    Then old chat window should be <final_old_chat_status>
+Scenario: new livechat feature switch is off
+    Given new livechat feature switch is "off"
+    And brand is "online" for chat
+    When customer opens brand page with old chat
+    Then old chat window status should be "online"
 
-    Examples:
-        | new_chat_feature_state    | final_old_chat_status |
-        | off                       | online                |
-        | on                        | offline               |
-
+Scenario: new livechat feature switch is on
+    Given new livechat feature switch is "off"
+    And brand is "offline" for chat
+    And new livechat feature switch is "on"
+    And agent refreshes engager browser
+    And brand goes "online" for chat
+    When customer opens brand page with old chat
+    Then old chat window status should be "offline"
 

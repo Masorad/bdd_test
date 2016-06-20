@@ -41,6 +41,12 @@ def agent_opens_second_browser(context, index):
     engager_browser.ac.engager.login(agent['login'], agent['password'])
 
 
+@step('agent refreshes engager browser')
+def agent_refreshes_engager_browser(context):
+    engager_browser = context.browsers['engager']['first']
+    engager_browser.refresh()
+
+
 @then('agent should be "{status}" for chat in "{index}" browser')
 def agent_should_be_status_in_index_browser(context, status, index):
     valid_indexes = {'first', 'second', 'third'}

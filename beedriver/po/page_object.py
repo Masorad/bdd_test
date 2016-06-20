@@ -1,9 +1,12 @@
 class PageObject:
 
-    def __init__(self, parent, base_xpath):
+    def __init__(self, parent, base_xpath, dont_chain_xpath=False):
         self.parent = parent
         self.client = self.parent.client
-        self.base_xpath = self.parent.base_xpath + base_xpath
+        if dont_chain_xpath == True:
+            self.base_xpath = base_xpath
+        else:
+            self.base_xpath = self.parent.base_xpath + base_xpath
         self.init_child_objects()
 
     def init_child_objects(self):
@@ -17,4 +20,7 @@ class PageObject:
 
     def wait_for_exist(self):
         self.client.wait_for_exist(self.base_xpath)
+
+    def move_to(self):
+        self.client.move_to(self.base_xpath)
 

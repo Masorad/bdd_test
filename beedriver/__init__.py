@@ -3,6 +3,7 @@ import importlib
 from selenium import webdriver
 from selenium.common import exceptions
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
 from beedriver.po import RootPageObject
 from beedriver.ac import RootActionChain
 
@@ -34,12 +35,21 @@ def get_beedriver():
             except exceptions.NoSuchElementException:
                 return False
 
-        def wait_for_exist(self, selector, timeout=1):
+        def wait_for_exist(self, selector, timeout=5):
             WebDriverWait(self, timeout).until(
                 lambda x: self.is_existing(selector),
                 message='Element "{}" not found after {} seconds.'.format(
                     selector, timeout)
             )
+
+        def move_to(self, selector):
+            element = self.find_element_by_xpath(selector)
+            hover = ActionChains(self).move_to_element(element)
+            hover.perform()
+
+        def move_by_offset(self, x, y):
+            move = ActionChains(self).move_by_offset(x, y)
+            move.perform()
 
     return BeeDriver(**browser.config)
 

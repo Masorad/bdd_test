@@ -1,5 +1,5 @@
 from .engager import EngagerAC
-from .action_chain import ActionChain
+from .office import OfficeAC
 
 class RootActionChain:
 
@@ -7,4 +7,5 @@ class RootActionChain:
         self.parent = None
         self.client = client
         self.engager = EngagerAC(self)
+        self.office = OfficeAC(self)
 

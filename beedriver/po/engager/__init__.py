@@ -3,6 +3,8 @@ from .locators import EngagerLocators
 from .login_page import LoginPage
 from .left_panel import LeftPanel
 #from .care import Care
+from beedriver.po.widgets.tracy import Tracy
+from beedriver.po.widgets.tracy.locators import TracyLocators
 
 class Engager(PageObject):
 
@@ -10,6 +12,7 @@ class Engager(PageObject):
         self.login_page = LoginPage(self, EngagerLocators.LOGIN_PAGE)
         self.left_panel = LeftPanel(self, EngagerLocators.LEFT_PANEL)
         #self.care = Care(self, EngagerLocators.CARE)
+        self.tracy = Tracy(self, TracyLocators.WRAPPER)
 
     def load(self):
         self.client.get(self.client.config.engager_url)
