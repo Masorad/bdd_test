@@ -6,9 +6,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from beedriver.po import RootPageObject
 from beedriver.ac import RootActionChain
 
-def get_beedriver_class(base=webdriver.Firefox):
+def get_browser():
+    browser = os.getenv('BEEDRIVER_BROWSER') or 'default'
+    browser_config_file = 'beedriver.browser.{}'.format(browser)
+    return importlib.import_module(browser_config_file)
 
-    class BeeDriver(base):
+def get_beedriver():
+
+    browser = get_browser()
+
+    class BeeDriver(browser.base_class):
 
         def start_client(self):
             self.config = self.get_config()
@@ -34,5 +41,5 @@ def get_beedriver_class(base=webdriver.Firefox):
                     selector, timeout)
             )
 
-    return BeeDriver
+    return BeeDriver(**browser.config)
 

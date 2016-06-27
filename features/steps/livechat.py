@@ -4,7 +4,7 @@ from helpers import validate_step_input
 
 @step('customer opens brand page')
 def customer_opens_brand_page(context):
-    livechat_browser = context.BeeDriver(**context.browser_config)
+    livechat_browser = context.BeeDriver()
     context.browsers['livechat']['first'] = livechat_browser
     livechat_browser.po.livechat.load()
 

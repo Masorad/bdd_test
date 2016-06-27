@@ -7,7 +7,7 @@ def brand_is_status_for_chat(context, status):
     validate_step_input(status, valid_statuses)
 
     # init browser
-    engager_browser = context.BeeDriver(**context.browser_config)
+    engager_browser = context.BeeDriver()
     context.browsers['engager']['first'] = engager_browser
     engager_browser.po.engager.load()
     agent = engager_browser.config.agent
@@ -34,7 +34,7 @@ def agent_opens_second_browser(context, index):
     valid_indexes = {'first', 'second', 'third'}
     validate_step_input(index, valid_indexes)
 
-    engager_browser = context.BeeDriver(**context.browser_config)
+    engager_browser = context.BeeDriver()
     context.browsers['engager'][index] = engager_browser
     engager_browser.po.engager.load()
     agent = engager_browser.config.agent
