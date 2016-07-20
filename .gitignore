@@ -62,3 +62,6 @@ target/
 # custom config files
 beedriver/config/custom*
 
+# virtual environment
+venv*
+
