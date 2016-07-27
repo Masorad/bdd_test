@@ -9,7 +9,7 @@ Scenario Outline: customer expands "<status>" chat window to see "<status>" form
 
     Examples:
         | status    |
-        | offline   |
+        #| offline   |  # offline form is no longer default behavior
         | online    |
 
 Scenario: customer submits online form in chat window
