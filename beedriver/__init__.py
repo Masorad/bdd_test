@@ -1,19 +1,21 @@
-import os
 import importlib
-from selenium import webdriver
+import os
+
 from selenium.common import exceptions
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
-from beedriver.po import RootPageObject
+from selenium.webdriver.support.ui import WebDriverWait
+
 from beedriver.ac import RootActionChain
+from beedriver.po import RootPageObject
+
 
 def get_browser():
     browser = os.getenv('BEEDRIVER_BROWSER') or 'default'
     browser_config_file = 'beedriver.browser.{}'.format(browser)
     return importlib.import_module(browser_config_file)
 
-def get_beedriver():
 
+def get_beedriver():
     browser = get_browser()
 
     class BeeDriver(browser.base_class):
@@ -52,4 +54,3 @@ def get_beedriver():
             move.perform()
 
     return BeeDriver(**browser.config)
-

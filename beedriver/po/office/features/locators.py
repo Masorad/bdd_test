@@ -1,5 +1,4 @@
 class FeaturesLocators:
-
     @classmethod
     def feature_by_url(cls, feature):
         return "//tr[descendant::*[contains(@href,'/feature/{}/')]]".format(feature)
@@ -15,4 +14,3 @@ class FeaturesLocators:
         return "{}/td[3]/a".format(feature_row)
 
     ENABLED_CLASS = 'green'
-

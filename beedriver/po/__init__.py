@@ -1,7 +1,7 @@
-from .engager import Engager
-from .office import Office
-from .livechat import LiveChat
 from .brand_status_switcher import BrandStatusSwitcher
+from .engager import Engager
+from .livechat import LiveChat
+from .office import Office
 from .page_object import PageObject
 
 

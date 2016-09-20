@@ -1,7 +1,7 @@
 from beedriver.po.page_object import PageObject
 
-class TextInput(PageObject):
 
+class TextInput(PageObject):
     def clear(self):
         self.find().clear()
         return self
@@ -15,4 +15,3 @@ class TextInput(PageObject):
         elem.clear()
         elem.send_keys(value)
         return self
-

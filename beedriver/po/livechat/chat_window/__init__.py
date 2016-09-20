@@ -3,8 +3,8 @@ from .locators import ChatWindowLocators as Locators
 from .offline_form import OfflineForm
 from .start_chat_form import StartChatForm
 
-class ChatWindow(PageObject):
 
+class ChatWindow(PageObject):
     def init_child_objects(self):
         self.offline_form = OfflineForm(self, Locators.OFFLINE_FORM)
         self.start_chat_form = StartChatForm(self, Locators.START_CHAT_FORM)
@@ -13,9 +13,8 @@ class ChatWindow(PageObject):
         self.reply_box = PageObject(self, Locators.REPLY_BOX)
 
     def is_online(self):
-        status_elem = self.find()
-        status_attribute = status_elem.get_attribute('data-status')
-        return 'ONLINE' in status_attribute
+        locator = self.base_xpath + Locators.STATUS_ELEMENT_ONLINE
+        return self.client.is_existing(locator)
 
     def is_collapsed(self):
         locator = self.base_xpath + Locators.HEADER_COLLAPSED
@@ -39,7 +38,6 @@ class ChatWindow(PageObject):
 
     def expand(self):
         self._resize('expand')
-        
+
     def collapse(self):
         self._resize('collapse')
-

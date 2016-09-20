@@ -1,6 +1,6 @@
 Feature: basic live chat window
 
-Scenario Outline: customer opens page of a brand that is "<status>" for chat
+  Scenario Outline: customer opens page of a brand that is "<status>" for chat
     Given new livechat feature switch is "on"
     And brand is "<status>" for chat
     When customer opens brand page
@@ -8,11 +8,11 @@ Scenario Outline: customer opens page of a brand that is "<status>" for chat
     And chat window status should be "<status>"
 
     Examples:
-        | status    |
-        | offline   |
-        | online    |
+      | status  |
+      | offline |
+      | online  |
 
-Scenario Outline: customer expands collapsed "<status>" chat window
+  Scenario Outline: customer expands collapsed "<status>" chat window
     Given new livechat feature switch is "on"
     And brand is "<status>" for chat
     And customer opens brand page
@@ -21,11 +21,11 @@ Scenario Outline: customer expands collapsed "<status>" chat window
     And chat window status should be "<status>"
 
     Examples:
-        | status    |
-        | offline   |
-        | online    |
+      | status  |
+      | offline |
+      | online  |
 
-Scenario Outline: customer collapses expanded "<status>" chat window
+  Scenario Outline: customer collapses expanded "<status>" chat window
     Given new livechat feature switch is "on"
     And brand is "<status>" for chat
     And customer opens brand page
@@ -35,11 +35,11 @@ Scenario Outline: customer collapses expanded "<status>" chat window
     And chat window status should be "<status>"
 
     Examples:
-        | status    |
-        | offline   |
-        | online    |
+      | status  |
+      | offline |
+      | online  |
 
-Scenario Outline: brand goes from "<init_status>" to "<end_status>" for chat when chat window is collapsed
+  Scenario Outline: brand goes from "<init_status>" to "<end_status>" for chat when chat window is collapsed
     Given new livechat feature switch is "on"
     And brand is "<init_status>" for chat
     And customer opens brand page
@@ -48,11 +48,11 @@ Scenario Outline: brand goes from "<init_status>" to "<end_status>" for chat whe
     And chat window status should be "<end_status>"
 
     Examples:
-        | init_status   | end_status    |
-        | offline       | online        |
-        | online        | offline       |
+      | init_status | end_status |
+      | offline     | online     |
+      | online      | offline    |
 
-Scenario Outline: brand goes from "<init_status>" to "<end_status>" for chat when chat window is expanded
+  Scenario Outline: brand goes from "<init_status>" to "<end_status>" for chat when chat window is expanded
     Given new livechat feature switch is "on"
     And brand is "<init_status>" for chat
     And customer opens brand page
@@ -62,7 +62,7 @@ Scenario Outline: brand goes from "<init_status>" to "<end_status>" for chat whe
     And chat window status should be "<end_status>"
 
     Examples:
-        | init_status   | end_status    |
-        | offline       | online        |
-        | online        | offline       |
+      | init_status | end_status |
+      | offline     | online     |
+      | online      | offline    |
 

@@ -1,6 +1,6 @@
 Feature: livechat customer connects to chat
 
-Scenario Outline: customer expands "<status>" chat window to see "<status>" form
+  Scenario Outline: customer expands "<status>" chat window to see "<status>" form
     Given new livechat feature switch is "on"
     And brand is "<status>" for chat
     And customer opens brand page
@@ -8,11 +8,11 @@ Scenario Outline: customer expands "<status>" chat window to see "<status>" form
     Then chat window should show "<status>" form
 
     Examples:
-        | status    |
-        #| offline   |  # offline form is no longer default behavior
-        | online    |
+      | status |
+      #| offline   |  # offline form is no longer default behavior
+      | online |
 
-Scenario: customer submits online form in chat window
+  Scenario: customer submits online form in chat window
     Given new livechat feature switch is "on"
     And brand is "online" for chat
     And customer opens brand page

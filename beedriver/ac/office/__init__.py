@@ -1,7 +1,7 @@
 from beedriver.ac.action_chain import ActionChain
 
-class OfficeAC(ActionChain):
 
+class OfficeAC(ActionChain):
     def login(self, email, password):
         office = self.client.po.office
         office.load()
@@ -9,4 +9,3 @@ class OfficeAC(ActionChain):
         login_form.email.set(email)
         login_form.password.set(password)
         login_form.submit_button.click()
-

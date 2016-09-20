@@ -1,8 +1,8 @@
 from beedriver.po.page_object import PageObject
 from .locators import FeaturesLocators
 
-class Features(PageObject):
 
+class Features(PageObject):
     def load(self):
         config = self.client.config
         base_office_url = config.office['url']
@@ -24,4 +24,3 @@ class Features(PageObject):
         locator = FeaturesLocators.feature_toggle_by_url(feature)
         toggle_element = self.client.find_element_by_xpath(locator)
         toggle_element.click()
-

@@ -1,12 +1,16 @@
-from behave import given, when, then, step
+from behave import when, then, step
 from helpers import validate_step_input
-    
+
+from beedriver.po.livechat import LiveChatLocators
+
 
 @step('customer opens brand page')
 def customer_opens_brand_page(context):
     livechat_browser = context.BeeDriver()
-    context.browsers['livechat']['first'] = livechat_browser
     livechat_browser.po.livechat.load()
+    iframe_id = livechat_browser.find_element_by_class_name(LiveChatLocators.CHAT_WINDOW_IFRAME_CLASS_NAME)
+    livechat_browser.switch_to_frame(iframe_id)
+    context.browsers['livechat']['first'] = livechat_browser
 
 
 @step('customer "{resize_action}" chat window')
@@ -88,4 +92,3 @@ def step_impl(context):
     chat_window.agent_profile.wait_for_exist()
     chat_window.conversation.wait_for_exist()
     chat_window.reply_box.wait_for_exist()
-

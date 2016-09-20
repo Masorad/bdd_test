@@ -17,4 +17,3 @@ agent = {
     'login': "replace with agent's login name",
     'password': "replace with agent's password",
 }
-

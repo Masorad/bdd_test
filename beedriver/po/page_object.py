@@ -1,5 +1,4 @@
 class PageObject:
-
     def __init__(self, parent, base_xpath, dont_chain_xpath=False):
         self.parent = parent
         self.client = self.parent.client
@@ -23,4 +22,3 @@ class PageObject:
 
     def move_to(self):
         self.client.move_to(self.base_xpath)
-

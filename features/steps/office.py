@@ -1,5 +1,6 @@
-from behave import given, when, then, step
+from behave import given, step
 from helpers import validate_step_input
+
 
 @step('admin logins to office')
 def admin_logins_to_office(context):
@@ -33,6 +34,5 @@ def new_livechat_feature_switch_is_state(context, state):
 
     # ensure switch is in correct state
     desired_state = state in {'on', 'enabled'}
-    office_po.tracy.close() # necessary when browser is narrow
+    office_po.tracy.close()  # necessary when browser is narrow
     office_po.features.ensure_feature_is_in_state('live-chat-v2', desired_state)
-
