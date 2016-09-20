@@ -31,7 +31,7 @@ If you want to specify config file, use `BEEDRIVER_CONFIG` environment variable 
 
 ### using Chrome
 Run selenium server, e.g.:
-```$ java -jar /home/$USER/bin/selenium-server-standalone-2.48.2.jar -Dwebdriver.chrome.driver=/home/$USER/bin/chromedriver```
+```$ java -jar -Dwebdriver.chrome.driver="/home/$USER/bin/chromedriver" /home/$USER/bin/selenium-server-standalone.jar```
  and then
 ```$ BEEDRIVER_BROWSER=chrome python -m behave feature_name.feature```
 
