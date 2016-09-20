@@ -1,21 +1,14 @@
-from behave import given, when, then, step
+from behave import given, then, step
 from helpers import validate_step_input
+
 
 @given('brand is "{status}" for chat')
 def brand_is_status_for_chat(context, status):
     valid_statuses = {'offline', 'online'}
     validate_step_input(status, valid_statuses)
 
-    # init browser
-    engager_browser = context.BeeDriver()
-    context.browsers['engager']['first'] = engager_browser
-    engager_browser.po.engager.load()
-    agent = engager_browser.config.agent
-    engager_browser.ac.engager.login(agent['login'], agent['password'])
-
-    # change status
-    context.execute_steps(
-        'When brand goes "{}" for chat'.format(status))
+    context.execute_steps('Given user is logged into engager')
+    context.execute_steps('When brand goes "{}" for chat'.format(status))
 
 
 @step('brand goes "{status}" for chat')
@@ -59,3 +52,17 @@ def agent_should_be_status_in_index_browser(context, status, index):
     desired_status = status == 'online'
     assert engager.left_panel.livechat_button.is_online() == desired_status
 
+
+@then('livechat button is missing')
+def livechat_button_is_missing(context):
+    engager = context.browsers['engager']['first'].po.engager
+    assert engager.left_panel.livechat_button.is_existing() is False
+
+
+@given('user is logged into engager')
+def user_is_logged_into_enagger(context):
+    engager_browser = context.BeeDriver()
+    context.browsers['engager']['first'] = engager_browser
+    engager_browser.po.engager.load()
+    agent = engager_browser.config.agent
+    engager_browser.ac.engager.login(agent['login'], agent['password'])

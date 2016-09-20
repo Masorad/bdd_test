@@ -55,6 +55,3 @@ $ python
 - `beedriver/config` - contains general config (names, passwords, etc.)
 - `features` - contains tests in Gherkin
 - `features/steps` - contains step implementation
-
-# TODO:
-- implement logging (use standard `logging` module)

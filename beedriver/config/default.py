@@ -6,7 +6,6 @@ office = {
     'login_password': 'testik',
 }
 
-old_livechat_url = 'http://localhost:8000'
 livechat_url = 'http://localhost:3003'
 
 brand_id = '1000'
