@@ -12,7 +12,11 @@ class PageObject:
         pass
 
     def find(self):
-        return self.client.find_element_by_xpath(self.base_xpath)
+        try:
+            return self.client.find_element_by_xpath(self.base_xpath)
+        except Exception as err:
+            self.client.save_screenshot(''.join(x for x in self.base_xpath if x.isalnum()) + '.png')
+            raise err
 
     def is_existing(self):
         return self.client.is_existing(self.base_xpath)
