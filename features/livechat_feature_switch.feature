@@ -9,4 +9,3 @@ Feature: new livechat feature switch
     Given brand is "offline" for chat
     And brand goes "online" for chat
     Then agent should be "online" for chat in "first" browser
-

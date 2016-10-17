@@ -20,4 +20,3 @@ Feature: livechat status reflected in all agent's browsers
       | init_status | end_status |
       | offline     | online     |
       | online      | offline    |
-
