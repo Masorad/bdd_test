@@ -60,4 +60,3 @@ Feature: basic live chat window
       | init_status | end_status |
       | offline     | online     |
       | online      | offline    |
-

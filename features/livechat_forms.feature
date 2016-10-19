@@ -18,4 +18,3 @@ Feature: livechat customer connects to chat
     And customer fills in valid name in chat window online form
     When customer submits online form in chat window
     Then chat window should show conversation interface
-
