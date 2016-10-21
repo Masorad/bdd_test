@@ -8,5 +8,7 @@ WORKDIR /usr/app
 COPY requirements.txt /usr/app/requirements.txt
 RUN pip3 install -r requirements.txt
 
-CMD sleep inf
-#CMD BEEDRIVER_CONFIG=custom_config BEEDRIVER_BROWSER=remote python3 -m behave features/livechat_feature_switch.feature
+ENV BEEDRIVER_CONFIG=custom_config
+ENV BEEDRIVER_BROWSER=remote
+
+CMD python3 -m behave

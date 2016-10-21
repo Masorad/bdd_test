@@ -22,12 +22,12 @@ services:
     depends_on:
       - seleniumhub
 
-  gherkin:
-    build: ./
-    volumes:
-      - ${PATH_TO_BDD}:/usr/app
-    depends_on:
-      - chromenode
-      - seleniumhub
-    links:
-      - seleniumhub
+#  gherkin:
+#    build: ./
+#    volumes:
+#      - ${PATH_TO_BDD}:/usr/app
+#    depends_on:
+#      - chromenode
+#      - seleniumhub
+#    links:
+#      - seleniumhub
