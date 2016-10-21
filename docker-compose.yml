@@ -21,13 +21,3 @@ services:
       - HUB_PORT_4444_TCP_PORT=4444
     depends_on:
       - seleniumhub
-
-#  gherkin:
-#    build: ./
-#    volumes:
-#      - ${PATH_TO_BDD}:/usr/app
-#    depends_on:
-#      - chromenode
-#      - seleniumhub
-#    links:
-#      - seleniumhub
