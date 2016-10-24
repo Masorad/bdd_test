@@ -60,19 +60,19 @@ $ python
 ```bash
 
 # build images from docker-compose
-sudo docker-compose build --no-cache
+docker-compose build --no-cache
 
 # buid gherkin image with tests
-sudo docker build . --tag bddtests_gherkin
+docker build . --tag bddtests_gherkin
 
 # run services for selenium hub and browser
-sudo docker-compose up # optional -d to run it as deamon
+docker-compose up # optional -d to run it as deamon
 
 # create more chrome instances 
-sudo docker-compose scale chromenode=5
+docker-compose scale chromenode=5
 
 # run tests
-sudo docker run -it --rm --sig-proxy=true --pid=host --link seleniumhub --net bddtests_default -v'/home/achse/www/brandembassy/bdd_tests:/var/app' -w'/var/app' bddtests_gherkin 
+docker run -it --rm --sig-proxy=true --pid=host --link seleniumhub --net bddtests_default -v'/home/achse/www/brandembassy/bdd_tests:/var/app' -w'/var/app' bddtests_gherkin 
 ```
 
 ## Againts stage evironment
