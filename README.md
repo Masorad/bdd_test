@@ -68,6 +68,9 @@ sudo docker build . --tag bddtests_gherkin
 # run services for delenium hub and browser
 sudo docker-compose up # optional -d to run it as deamon
 
+# create more chrome instances 
+sudo docker-compose scale chromenode=5
+
 # run tests
 sudo docker run -it --rm --sig-proxy=true --pid=host --link seleniumhub --net bddtests_default -v'/home/achse/www/brandembassy/bdd_tests:/var/app' -w'/var/app' bddtests_gherkin 
 ```
