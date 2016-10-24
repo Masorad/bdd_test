@@ -3,6 +3,7 @@ Feature: livechat status reflected in all agent's browsers
   Scenario Outline: "<status>" status for chat is reflected when agent opens second browser
     Given brand is "<status>" for chat
     When agent opens "second" browser
+    And "agent" waits for "1" seconds
     Then agent should be "<status>" for chat in "second" browser
 
     Examples:
