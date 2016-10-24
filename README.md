@@ -59,13 +59,13 @@ $ python
 # Docker
 ```bash
 
-# build images from docer-compose
+# build images from docker-compose
 sudo docker-compose build --no-cache
 
-# buid herkin image with tests
+# buid gherkin image with tests
 sudo docker build . --tag bddtests_gherkin
 
-# run services for delenium hub and browser
+# run services for selenium hub and browser
 sudo docker-compose up # optional -d to run it as deamon
 
 # create more chrome instances 
