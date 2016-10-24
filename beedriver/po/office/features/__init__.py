@@ -7,8 +7,9 @@ class Features(PageObject):
         config = self.client.config
         base_office_url = config.office['url']
         brand_id = config.brand_id
-        url = '{}/brands/detail/features-list/id/{}/'.format(
-            base_office_url, brand_id)
+        url = '{}/brands/detail/features-list/id/{}/'\
+            .format(base_office_url, brand_id)\
+            .replace('//', '/')
         self.client.get(url)
 
     def is_enabled(self, feature):

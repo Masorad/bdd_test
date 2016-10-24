@@ -1,7 +1,7 @@
-engager_url = 'http://engager-stage.brandembassy.com/'
+engager_url = 'http://engager-stage.brandembassy.com'
 
 office = {
-    'url': 'http://office-stage.brandembassy.com/',
+    'url': 'http://office-stage.brandembassy.com',
     'login_name': 'hejna@brandembassy.com',
     'login_password': 'TVu6N1xz',
 }
@@ -17,3 +17,4 @@ agent = {
     'login': "gherkin@brandembassy.com",
     'password': "ztX2ndLn",
 }
+
