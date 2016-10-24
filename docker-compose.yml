@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+
+  seleniumhub:
+    image: selenium/hub
+    ports:
+      - "4444:4444"
+    container_name: seleniumhub
+
+  chromenode:
+    image: selenium/node-chrome
+    ports:
+      - 5900
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=seleniumhub
+      - HUB_PORT_4444_TCP_PORT=4444
+    depends_on:
+      - seleniumhub

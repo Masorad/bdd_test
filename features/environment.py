@@ -18,9 +18,10 @@ def before_scenario(context, scenario):
 def after_scenario(context, scenario):
     for browser_name in context.browsers.keys():
         for browser_index in context.browsers[browser_name].keys():
-            try:
-                context.browsers[browser_name][browser_index].quit()
-            except:
-                pass
+            if scenario.status == 'failed':
+                screenshot_name = browser_name + '-' + scenario.name.replace(' ', '_')
+                context.browsers[browser_name][browser_index].save_screenshot('screenshots/' + screenshot_name + '.png')
+
+            context.browsers[browser_name][browser_index].quit()
 
     del context.browsers

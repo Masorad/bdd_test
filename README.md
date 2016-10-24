@@ -55,3 +55,48 @@ $ python
 - `beedriver/config` - contains general config (names, passwords, etc.)
 - `features` - contains tests in Gherkin
 - `features/steps` - contains step implementation
+
+# Docker
+```bash
+
+# build images from docker-compose
+docker-compose build --no-cache
+
+# buid gherkin image with tests
+docker build . --tag bddtests_gherkin
+
+# run services for selenium hub and browser
+docker-compose up # optional -d to run it as deamon
+
+# create more chrome instances 
+docker-compose scale chromenode=5
+
+# run tests
+docker run -it --rm --sig-proxy=true --pid=host --link seleniumhub --net bddtests_default -v'/home/achse/www/brandembassy/bdd_tests:/var/app' -w'/var/app' bddtests_gherkin 
+```
+
+## Againts stage evironment
+
+You need to have `config/custom_config.py` with this contnt:
+
+```py
+engager_url = 'http://engager-stage.brandembassy.com/'
+
+office = {
+    'url': 'http://office-stage.brandembassy.com/',
+    'login_name': 'hejna@brandembassy.com',
+    'login_password': 'TVu6N1xz',
+}
+
+livechat_url = 'https://vps-web-utils.awsbrandembassy.com/livechat-window-gherkin/'
+
+brand_id = '1073'  # Gherkin's Selenium Brand
+
+# abstract brand from this once chat window communicates with engager
+brand_status_switcher_url = 'http://localhost:3000/?testing1234'
+
+agent = {
+    'login': "gherkin@brandembassy.com",
+    'password': "ztX2ndLn",
+}
+```

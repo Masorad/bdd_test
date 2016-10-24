@@ -6,6 +6,7 @@ Feature: new livechat feature switch
 
 
   Scenario: new livechat feature switch is on
-    Given brand is "offline" for chat
+    Given user is logged into engager
+    And brand is "offline" for chat
     And brand goes "online" for chat
     Then agent should be "online" for chat in "first" browser

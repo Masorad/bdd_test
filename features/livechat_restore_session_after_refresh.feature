@@ -1,7 +1,7 @@
 Feature: Livechat window restore chat after browser reload
 
   Scenario: Restore chat sesion in customers window after browser reload
-    And agent "Karel" is "online" for chat
+    Given agent "Karel" is "online" for chat
     When customer "Ruda Pruda" opens brand page
     And customer "Ruda Pruda" "expands" chat window
     And agent "Karel" opens chat session
