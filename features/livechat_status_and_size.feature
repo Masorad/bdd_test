@@ -3,6 +3,7 @@ Feature: basic live chat window
   Scenario Outline: customer opens page of a brand that is "<status>" for chat
     Given brand is "<status>" for chat
     When customer opens brand page
+    And "customer" waits for "1" seconds
     Then chat window should be "collapsed"
     And chat window status should be "<status>"
 
@@ -14,6 +15,7 @@ Feature: basic live chat window
   Scenario Outline: customer expands collapsed "<status>" chat window
     Given brand is "<status>" for chat
     And customer opens brand page
+    And "customer" waits for "1" seconds
     When customer "expands" chat window
     Then chat window should be "expanded"
     And chat window status should be "<status>"
@@ -29,7 +31,8 @@ Feature: basic live chat window
     And customer "expands" chat window
     When customer "collapses" chat window
     Then chat window should be "collapsed"
-    And chat window status should be "<status>"
+    When "customer" waits for "1" seconds
+    Then chat window status should be "<status>"
 
     Examples:
       | status  |
@@ -40,6 +43,7 @@ Feature: basic live chat window
     Given brand is "<init_status>" for chat
     And customer opens brand page
     When brand goes "<end_status>" for chat
+    And "customer" waits for "1" seconds
     Then chat window should be "collapsed"
     And chat window status should be "<end_status>"
 
@@ -53,6 +57,7 @@ Feature: basic live chat window
     And customer opens brand page
     And customer "expands" chat window
     When brand goes "<end_status>" for chat
+    And "customer" waits for "1" seconds
     Then chat window should be "expanded"
     And chat window status should be "<end_status>"
 

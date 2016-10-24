@@ -1,5 +1,7 @@
 class ChatWindowLocators:
     STATUS_ELEMENT_ONLINE = "//*[contains(@class,'be-chat__status--online')]"
+    BEGIN_CONVERSATION_BUTTON = "//*[contains(@class,'orange-button')]"
+
     START_CHAT_FORM = "//form"
     OFFLINE_FORM = "//*[contains(@class,'form')]"
 

@@ -14,6 +14,7 @@ Feature: livechat status reflected in all agent's browsers
     Given brand is "<init_status>" for chat
     And agent opens "second" browser
     When brand goes "<end_status>" for chat
+    And "agent" waits for "1" seconds
     Then agent should be "<end_status>" for chat in "second" browser
 
     Examples:
