@@ -1,5 +1,3 @@
-import time
-
 class PageObject:
     def __init__(self, parent, base_xpath, dont_chain_xpath=False):
         self.parent = parent
@@ -14,11 +12,7 @@ class PageObject:
         pass
 
     def find(self):
-        try:
-            return self.client.find_element_by_xpath(self.base_xpath)
-        except Exception as err:
-            self.client.save_screenshot('screen_shot_' + str(time.time() * 1000) + '.png')
-            raise err
+        return self.client.find_element_by_xpath(self.base_xpath)
 
     def is_existing(self):
         return self.client.is_existing(self.base_xpath)
