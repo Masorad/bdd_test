@@ -2,6 +2,7 @@ __pycache__/
 *.py[cod]
 *.so
 *.log
+screenshots/*.png
 
 beedriver/config/custom*
 venv*
