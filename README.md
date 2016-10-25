@@ -74,3 +74,10 @@ docker-compose scale chromenode=5
 # run tests
 docker run -it --rm --sig-proxy=true -e BEEDRIVER_CONFIG='custom_config' --pid=host --link seleniumhub --net bddtests_default -v $PWD:/var/app -w'/var/app' bddtests_gherkin 
 ```
+
+## CI automation
+
+When automating BDD testing using docker, it is neccessary to wait until all 
+Chrome nodes are registered in Selenium Hub. If there are no registered nodes,
+tests will fail.
+
