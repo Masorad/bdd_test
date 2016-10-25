@@ -8,6 +8,7 @@ def brand_is_status_for_chat(context, status):
     validate_step_input(status, valid_statuses)
 
     context.execute_steps('Given user is logged into engager')
+    context.execute_steps('When "agent" waits for "1" seconds')
     context.execute_steps('When brand goes "{}" for chat'.format(status))
 
 
