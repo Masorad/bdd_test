@@ -1,5 +1,6 @@
 Feature: messages can be send and delivered
 
+  @skip
   Scenario: Customer opens chat session and contacts agent
     Given agent "Karel" is "online" for chat
     When customer "Ruda Pruda" opens brand page

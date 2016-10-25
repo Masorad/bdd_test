@@ -1,5 +1,6 @@
 Feature: agent can reassign chat to another agent
 
+  @skip
   Scenario: Agent reassigns chat
     Given agent "Karel" is "online" for chat
     And agent "Josef" is "online" for chat

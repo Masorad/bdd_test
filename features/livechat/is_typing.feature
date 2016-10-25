@@ -1,5 +1,6 @@
 Feature: agent can see how customer is typing
 
+  @skip
   Scenario: agent can see how customer is typing
     Given livechat feature "send message while customer is typing" switch is "off"
     And agent "Karel" is "online" for chat

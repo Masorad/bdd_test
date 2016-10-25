@@ -10,4 +10,4 @@ RUN pip3 install -r requirements.txt
 
 ENV BEEDRIVER_BROWSER=remote
 
-CMD python3 -m behave
+CMD python3 -m behave --tags=-skip

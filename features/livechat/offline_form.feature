@@ -1,5 +1,6 @@
 Feature: customer can send offline form when brand is offline
 
+  @skip
   Scenario: customer can send offline form when brand is offline
     Given brand is "offline" for chat
     And brand has offline form "on"

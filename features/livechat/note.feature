@@ -1,5 +1,6 @@
 Feature: agent can add note to chat message
 
+  @skip
   Scenario: livechat_is_typing.feature
     Given agent "Karel" is "online" for chat
     When customer "Ruda Pruda" opens brand page

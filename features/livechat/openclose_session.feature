@@ -1,5 +1,6 @@
 Feature: chat session can be opened and closed
 
+  @skip
   Scenario: customer opens and close chat
     Given agent "Karel" is "online" for chat
     When customer "Ruda Pruda" opens brand page
@@ -10,6 +11,7 @@ Feature: chat session can be opened and closed
     Then customer "Ruda Pruda" should see that chat session is "Closed"
     And agent "Karel" should see that chat session is "Closed".
 
+  @skip
   Scenario: customer opens chat and agent close chat
     Given agent "Karel" is "online" for chat
     When customer "Ruda Pruda" opens brand page

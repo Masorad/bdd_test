@@ -1,5 +1,6 @@
 Feature: customer can fill custom fields to provide initial info for agent
 
+  @skip
   Scenario: customer fills email before starting chat session into custom fields
     Given brand has "required" "email" custom field named "Email"
     And agent "Karel" is "online" for chat

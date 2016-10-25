@@ -1,5 +1,6 @@
 Feature: Livechat window restore chat after browser reload
 
+  @skip
   Scenario: Restore chat sesion in customers window after browser reload
     Given agent "Karel" is "online" for chat
     When customer "Ruda Pruda" opens brand page
