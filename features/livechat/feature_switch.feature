@@ -11,4 +11,5 @@ Feature: new livechat feature switch
     And user is logged into engager
     When brand goes "offline" for chat
     And brand goes "online" for chat
+    And "agent" waits for "1" seconds
     Then agent should be "online" for chat in "first" browser
