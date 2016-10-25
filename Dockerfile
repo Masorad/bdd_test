@@ -8,7 +8,6 @@ WORKDIR /usr/app
 COPY requirements.txt /usr/app/requirements.txt
 RUN pip3 install -r requirements.txt
 
-ENV BEEDRIVER_CONFIG=custom_config
 ENV BEEDRIVER_BROWSER=remote
 
 CMD python3 -m behave

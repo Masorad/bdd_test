@@ -1,3 +1,8 @@
+#
+# IMPORTANT! DO NOT USE IT ON YOUR LOCAL MACHINE.
+#            It can interfere with Jenkins Job.
+#
+
 engager_url = 'http://engager-stage.brandembassy.com'
 
 office = {
