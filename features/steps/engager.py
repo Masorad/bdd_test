@@ -67,3 +67,22 @@ def user_is_logged_into_enagger(context):
     engager_browser.po.engager.load()
     agent = engager_browser.config.agent
     engager_browser.ac.engager.login(agent['login'], agent['password'])
+
+
+@then('agent should receive chat session from "{customers_name}" with "{messages_count}" message')
+def agent_should_receive_session(context, customers_name, messages_count):
+    engager = context.browsers['engager']['first'].po.engager
+    assert engager.tab_list.has_tab_with_title("(" + messages_count + ") " + customers_name) is True
+
+
+@step('agent opens chat session')
+def agent_opens_chat_session(context):
+    engager = context.browsers['engager']['first'].po.engager
+    engager.tab_list.open_incomming_message()
+
+
+@then('agent should receive customers message "{message_text}"')
+def agent_should_receive_message(context, message_text):
+    engager = context.browsers['engager']['first'].po.engager
+
+    assert engager.post_tab.get_last_livechat_message() == message_text

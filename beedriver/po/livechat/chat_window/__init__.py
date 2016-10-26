@@ -1,7 +1,9 @@
 from beedriver.po.page_object import PageObject
 from .locators import ChatWindowLocators as Locators
 from .offline_form import OfflineForm
+from .send_message_form import SendMessageForm
 from .start_chat_form import StartChatForm
+
 
 class ChatWindow(PageObject):
     def init_child_objects(self):
@@ -9,7 +11,7 @@ class ChatWindow(PageObject):
         self.start_chat_form = StartChatForm(self, Locators.START_CHAT_FORM)
         self.agent_profile = PageObject(self, Locators.AGENT_PROFILE)
         self.conversation = PageObject(self, Locators.CONVERSATION)
-        self.reply_box = PageObject(self, Locators.REPLY_BOX)
+        self.send_message_form = SendMessageForm(self, Locators.REPLY_BOX)
 
     def is_online(self):
         online_icon_element = self.base_xpath + Locators.STATUS_ELEMENT_ONLINE
