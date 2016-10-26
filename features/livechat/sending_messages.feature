@@ -14,4 +14,5 @@ Feature: messages can be send and delivered
     When agent opens chat session
     Then agent should receive customers message "Hello, I have a problem. Can you help me?"
     When agent sends message "Hello, whats your problem, sir?"
+    And "customer" waits for "1" seconds
     Then customer should receive agents message "Hello, whats your problem, sir?"

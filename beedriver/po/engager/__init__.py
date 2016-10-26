@@ -6,6 +6,8 @@ from .locators import EngagerLocators
 from .login_page import LoginPage
 from .post_tab import PostTab
 from .post_tab.locators import PostTabLocators
+from .reply_box import ReplyBox
+from .reply_box.locators import ReplyBoxLocators
 from .tab_list import TabList
 from .tab_list.locators import TabListLocators
 
@@ -16,6 +18,7 @@ class Engager(PageObject):
         self.left_panel = LeftPanel(self, EngagerLocators.LEFT_PANEL)
         self.tab_list = TabList(self, TabListLocators.TAB_LIST)
         self.post_tab = PostTab(self, PostTabLocators.POST_TAB_WORKSPACE)
+        self.reply_box = ReplyBox(self, ReplyBoxLocators.REPLY_BOX)
         self.tracy = Tracy(self, TracyLocators.WRAPPER)
 
     def load(self):

@@ -86,3 +86,10 @@ def agent_should_receive_message(context, message_text):
     engager = context.browsers['engager']['first'].po.engager
 
     assert engager.post_tab.get_last_livechat_message() == message_text
+
+@step('agent sends message "{message_text}"')
+def agent_sends_message(context, message_text):
+    engager = context.browsers['engager']['first'].po.engager
+    engager.tracy.close()
+    engager.reply_box.send_message_form.message_input.set(message_text)
+    engager.reply_box.send_message_form.submit_button.click()
