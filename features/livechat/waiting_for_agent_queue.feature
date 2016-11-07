@@ -2,8 +2,9 @@ Feature: when agents are overloaded, customers waits in queue
 
   @skip
   Scenario: When agents are overloaded, customers waits in queue
-    Given brand is "online" for chat
-    And customer "Ruda Pruda" opens brand page
+    Given brand has maximum sesésions per agent se to "1"
+    And brand is "online" for chat
+    When customer "Ruda Pruda" opens brand page
     And "Ruda Pruda" waits for "1" seconds
     And customer "Ruda Pruda" "expands" chat window
     And customer "Ruda Pruda" fills "Ruda Pruda" into name input
