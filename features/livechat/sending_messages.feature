@@ -5,6 +5,7 @@ Feature: messages can be send and delivered
     And customer opens brand page
     And "customer" waits for "1" seconds
     And customer "expands" chat window
+    And "customer" waits for "2" seconds
     And customer fills "Ruda Pruda" into name input
     When customer submits online form in chat window
     Then chat window should show conversation interface
