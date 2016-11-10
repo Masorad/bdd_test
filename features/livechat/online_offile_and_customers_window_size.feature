@@ -31,6 +31,7 @@ Feature: basic live chat window
     And customer opens brand page
     And "customer" waits for "2" seconds
     And customer "expands" chat window
+    And "customer" waits for "2" seconds
     When customer "collapses" chat window
     And "customer" waits for "2" seconds
     Then chat window should be "collapsed"
