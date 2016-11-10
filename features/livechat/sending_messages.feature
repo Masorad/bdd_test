@@ -3,7 +3,7 @@ Feature: messages can be send and delivered
   Scenario: Customer opens chat session and contacts agent
     Given brand is "online" for chat
     And customer opens brand page
-    And "customer" waits for "1" seconds
+    And "customer" waits for "2" seconds
     And customer "expands" chat window
     And "customer" waits for "2" seconds
     And customer fills "Ruda Pruda" into name input
