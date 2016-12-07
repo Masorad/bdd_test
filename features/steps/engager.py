@@ -97,5 +97,4 @@ def agent_sends_message(context, message_text):
 @then('agent should see is typing message')
 def agent_should_see_is_typing_message(context):
     engager = context.browsers['engager']['first'].po.engager
-
-    assert engager.post_tab.get_is_typing_livechat_message()
+    engager.post_tab.get_is_typing_livechat_message()
