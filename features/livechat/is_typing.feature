@@ -14,5 +14,6 @@ Feature: agent can see how customer is typing
     And "agent" waits for "1" seconds
     Then agent should receive chat session from "Ruda Pruda" with "1" message
     When agent opens chat session
-    And customer types message "I'am writing very looong message"
+    Then agent should receive customers message "Hello, I have a problem. Can you help me?"
+    When customer types message "I'm writing very looong message"
     Then agent should see is typing message
