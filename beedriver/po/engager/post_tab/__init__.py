@@ -9,3 +9,10 @@ class PostTab(PageObject):
         last_message = message_elements[-1]
 
         return last_message.find_element_by_class_name(PostTabLocators.LIVE_CHAT_MESSAGE_TEXT_CLASS).text
+
+    def get_is_typing_livechat_message(self):
+        tab_workspace = self.find()
+        message_elements = tab_workspace.find_elements_by_class_name(PostTabLocators.LIVE_CHAT_MESSAGE_CLASS)
+        last_message = message_elements[-1]
+        print(last_message.find_element_by_class_name(PostTabLocators.LIVE_CHAT_IS_TYPING_CLASS))
+        return last_message.find_element_by_class_name(PostTabLocators.LIVE_CHAT_IS_TYPING_CLASS)

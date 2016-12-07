@@ -1,14 +1,18 @@
 Feature: agent can see how customer is typing
 
-  @skip
   Scenario: agent can see how customer is typing
-    Given livechat feature "send message while customer is typing" switch is "off"
-    And agent "Karel" is "online" for chat
-    When customer "Ruda Pruda" opens brand page
-    And customer "Ruda Pruda" "expands" chat window
-    And customer "Ruda Pruda" starts chat session
-    And agent "Karel" opens chat session
-    Then agent "Karel" should receive chat session from "Ruda Pruda"
-    When agent "Karel" opens chat session
-    And customer "Ruda Pruda" fills message box with "I am typing..."
-    Then agent "Karel" should see that customer is typing
+    Given feature "live-chat-v2-send-while-typing" switch is "off"
+    And brand is "online" for chat
+    And customer opens brand page
+    And "customer" waits for "2" seconds
+    And customer "expands" chat window
+    And "customer" waits for "2" seconds
+    And customer fills "Ruda Pruda" into name input
+    When customer submits online form in chat window
+    Then chat window should show conversation interface
+    When customer sends message "Hello, I have a problem. Can you help me?"
+    And "agent" waits for "1" seconds
+    Then agent should receive chat session from "Ruda Pruda" with "1" message
+    When agent opens chat session
+    And customer types message "I'am writing very looong message"
+    Then agent should see is typing message

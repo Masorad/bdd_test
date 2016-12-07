@@ -93,3 +93,9 @@ def agent_sends_message(context, message_text):
     engager.tracy.close()
     engager.reply_box.send_message_form.message_input.set(message_text)
     engager.reply_box.send_message_form.submit_button.click()
+
+@then('agent should see is typing message')
+def agent_should_see_is_typing_message(context):
+    engager = context.browsers['engager']['first'].po.engager
+
+    assert engager.post_tab.get_is_typing_livechat_message()
