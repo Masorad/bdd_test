@@ -98,3 +98,17 @@ def agent_sends_message(context, message_text):
 def agent_should_see_is_typing_message(context):
     engager = context.browsers['engager']['first'].po.engager
     engager.post_tab.get_is_typing_livechat_message()
+
+@step('agent sends note "{note_text}"')
+def agent_sends_note(context, note_text):
+    engager = context.browsers['engager']['first'].po.engager
+
+    engager.reply_box.note_tab.click()
+    engager.reply_box.send_message_form.message_input.set(note_text)
+    engager.reply_box.send_message_form.submit_button.click()
+
+@then('agent should see note "{note_text}"')
+def agent_should_receive_message(context, note_text):
+    engager = context.browsers['engager']['first'].po.engager
+
+    assert engager.post_tab.get_last_note_message() == note_text
