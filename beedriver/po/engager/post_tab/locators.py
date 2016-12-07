@@ -3,6 +3,7 @@ class PostTabLocators:
 
     LIVE_CHAT_MESSAGE_CLASS = 'bubble-wrap'
     LIVE_CHAT_MESSAGE_TEXT_CLASS = 'bubble__content'
+    LIVE_CHAT_GHOST_MESSAGE_CLASS = 'bubble--ghost'
     LIVE_CHAT_IS_TYPING_CLASS = 'typing-dots'
 
     NOTE_CLASS = "bubble--note"
