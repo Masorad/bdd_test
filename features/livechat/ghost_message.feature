@@ -2,7 +2,7 @@ Feature: agent can see how customer is typing
 
   @skip
   Scenario: agent can see how customer is typing
-    Given livechat feature "send message while customer is typing" switch is "on"
+    Given feature "live-chat-v2-send-while-typing" switch is "on"
     And agent "Karel" is "online" for chat
     When customer "Ruda Pruda" opens brand page
     And customer "Ruda Pruda" "expands" chat window

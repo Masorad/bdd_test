@@ -105,3 +105,8 @@ def step_impl(context, message_text):
 def customer_should_recieve_message(context, message_text):
     chat_window = context.browsers['livechat']['first'].po.livechat.chat_window
     assert chat_window.conversation.get_last_message() == message_text
+
+@step('customer types message "{message_text}"')
+def step_impl(context, message_text):
+    chat_window = context.browsers['livechat']['first'].po.livechat.chat_window
+    chat_window.send_message_form.message_input.set(message_text)
