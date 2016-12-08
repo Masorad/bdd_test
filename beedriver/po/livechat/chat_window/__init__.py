@@ -14,7 +14,7 @@ class ChatWindow(PageObject):
         self.offline_form = OfflineForm(self, Locators.OFFLINE_FORM)
         self.start_chat_form = StartChatForm(self, Locators.START_CHAT_FORM)
         self.agent_profile = AgentProfile(self, AgentProfileLocator.AGENT_PROFILE)
-        self.conversation = Conversations(self, Locators.CONVERSATION, dont_chain_xpath=True)
+        self.conversation = Conversations(self, Locators.CONVERSATION)
         self.send_message_form = SendMessageForm(self, Locators.REPLY_BOX)
         self.header = PageObject(self, Locators.HEADER)
 
