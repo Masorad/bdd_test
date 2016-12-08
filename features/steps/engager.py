@@ -1,6 +1,6 @@
 from behave import given, then, step
 from helpers import validate_step_input
-
+import time
 
 @given('brand is "{status}" for chat')
 def brand_is_status_for_chat(context, status):
@@ -39,7 +39,6 @@ def agent_opens_second_browser(context, index):
 def agent_refreshes_engager_browser(context):
     engager_browser = context.browsers['engager']['first']
     engager_browser.refresh()
-    import time
     time.sleep(3)
 
 

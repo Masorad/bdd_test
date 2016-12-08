@@ -2,7 +2,7 @@ from behave import when, then, step
 from helpers import validate_step_input
 
 from beedriver.po.livechat import LiveChatLocators
-
+import time
 
 @step('customer opens brand page')
 def customer_opens_brand_page(context):
@@ -38,7 +38,6 @@ def customer_submits_online_form_in_chat_window(context):
     form = context.browsers['livechat']['first'].po.livechat.chat_window.start_chat_form
     form.wait_for_exist()
     form.submit_button.click()
-    import time
     time.sleep(1)
 
 
@@ -118,5 +117,4 @@ def agent_refreshes_livechat_browser(context):
     livechat_browser.refresh()
     iframe_id = livechat_browser.find_element_by_class_name(LiveChatLocators.CHAT_WINDOW_IFRAME_CLASS_NAME)
     livechat_browser.switch_to_frame(iframe_id)
-    import time
     time.sleep(3)
