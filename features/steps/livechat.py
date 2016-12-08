@@ -104,9 +104,19 @@ def step_impl(context, message_text):
 @then('customer should receive agents message "{message_text}"')
 def customer_should_recieve_message(context, message_text):
     chat_window = context.browsers['livechat']['first'].po.livechat.chat_window
+
     assert chat_window.conversation.get_last_message() == message_text
 
 @step('customer types message "{message_text}"')
 def step_impl(context, message_text):
     chat_window = context.browsers['livechat']['first'].po.livechat.chat_window
     chat_window.send_message_form.message_input.set(message_text)
+
+@step('customer refreshes livechat browser')
+def agent_refreshes_livechat_browser(context):
+    livechat_browser = context.browsers['livechat']['first']
+    livechat_browser.refresh()
+    iframe_id = livechat_browser.find_element_by_class_name(LiveChatLocators.CHAT_WINDOW_IFRAME_CLASS_NAME)
+    livechat_browser.switch_to_frame(iframe_id)
+    import time
+    time.sleep(3)

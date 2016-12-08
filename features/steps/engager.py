@@ -39,6 +39,8 @@ def agent_opens_second_browser(context, index):
 def agent_refreshes_engager_browser(context):
     engager_browser = context.browsers['engager']['first']
     engager_browser.refresh()
+    import time
+    time.sleep(3)
 
 
 @then('agent should be "{status}" for chat in "{index}" browser')
