@@ -15,9 +15,6 @@ livechat_url = 'https://vps-web-utils.awsbrandembassy.com/livechat-window-gherki
 
 brand_id = '1073'  # Gherkin's Selenium Brand
 
-# abstract brand from this once chat window communicates with engager
-brand_status_switcher_url = 'http://localhost:3000/?testing1234'
-
 agent = {
     'login': "gherkin@brandembassy.com",
     'password': "ztX2ndLn",
