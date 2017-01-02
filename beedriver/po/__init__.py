@@ -1,4 +1,3 @@
-from .brand_status_switcher import BrandStatusSwitcher
 from .engager import Engager
 from .livechat import LiveChat
 from .office import Office
@@ -14,4 +13,3 @@ class RootPageObject(PageObject):
         self.engager = Engager(self, '')
         self.office = Office(self, '')
         self.livechat = LiveChat(self, '')
-        self.brand_status_switcher = BrandStatusSwitcher(self, '')
