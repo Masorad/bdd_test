@@ -14,5 +14,3 @@ class ChatWindowLocators:
     CONVERSATION = "//*[@class='scroll-box']"
     REPLY_BOX = "//*[@class='reply-box']"
     END_CHAT_BOX = "//*[contains(@class,'be-chat__content--session-closed')]"
-
-
