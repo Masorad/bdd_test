@@ -45,3 +45,9 @@ class PostTab(PageObject):
         return ghost_message.find_element_by_class_name(
             PostTabLocators.LIVE_CHAT_MESSAGE_TEXT_CLASS
         ).text
+
+    def get_is_livechat_session_closed(self):
+        tab_workspace = self.find()
+        status_message = tab_workspace.find_element_by_class_name(PostTabLocators.STATUS_MESSAGE)
+
+        return status_message.text == 'Chat session is closed.'

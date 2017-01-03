@@ -115,7 +115,13 @@ def agent_sends_note(context, note_text):
     engager.reply_box.send_message_form.submit_button.click()
 
 @then('agent should see note "{note_text}"')
-def agent_should_receive_message(context, note_text):
+def agent_should_see_note(context, note_text):
     engager = context.browsers['engager']['first'].po.engager
 
     assert engager.post_tab.get_last_note_message() == note_text
+
+@then('agent should see that chat session is "Closed"')
+def agent_should_see_that_chat_session_is_closed(context):
+    engager = context.browsers['engager']['first'].po.engager
+    engager.tab_list.open_incomming_message()
+    engager.post_tab.get_is_livechat_session_closed()

@@ -4,6 +4,8 @@ from .agent_profile import AgentProfile
 from .agent_profile.locators import AgentProfileLocator
 from .conversations import Conversations
 from .locators import ChatWindowLocators as Locators
+from .header import Header
+from .header.locators import HeaderLocators
 from .offline_form import OfflineForm
 from .send_message_form import SendMessageForm
 from .start_chat_form import StartChatForm
@@ -18,7 +20,8 @@ class ChatWindow(PageObject):
         )
         self.conversation = Conversations(self, Locators.CONVERSATION)
         self.send_message_form = SendMessageForm(self, Locators.REPLY_BOX)
-        self.header = PageObject(self, Locators.HEADER)
+        self.header = Header(self, HeaderLocators.HEADER)
+        self.end_chat_message = PageObject(self, Locators.END_CHAT_BOX)
 
     def is_online(self):
         online_icon_element = self.base_xpath + Locators.STATUS_ELEMENT_ONLINE

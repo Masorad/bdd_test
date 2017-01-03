@@ -8,10 +8,11 @@ class ChatWindowLocators:
 
     STATUS = "//*[contains(@class,'be-chat__status')]"
 
-    HEADER = "//*[contains(@class,'be-chat__header')]"
-
     HEADER_COLLAPSED = "//*[contains(@class,'be-chat--minimize')]"
     HEADER_EXPANDED = "//*[contains(@class,'control-panel__icon--minimize')]"
 
     CONVERSATION = "//*[@class='scroll-box']"
     REPLY_BOX = "//*[@class='reply-box']"
+    END_CHAT_BOX = "//*[contains(@class,'be-chat__content--session-closed')]"
+
+

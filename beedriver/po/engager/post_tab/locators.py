@@ -8,3 +8,5 @@ class PostTabLocators:
 
     NOTE_CLASS = "bubble--note"
     NOTE_CONTENT_CLASS = "bubble__content"
+
+    STATUS_MESSAGE = "chat-system-msg"
