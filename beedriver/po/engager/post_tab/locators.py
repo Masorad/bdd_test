@@ -10,3 +10,5 @@ class PostTabLocators:
     NOTE_CONTENT_CLASS = "bubble__content"
 
     STATUS_MESSAGE = "chat-system-msg"
+
+    CLOSE_CHAT_SESSION_BUTTON = "//*[contains(@class, 'red-button')]"
