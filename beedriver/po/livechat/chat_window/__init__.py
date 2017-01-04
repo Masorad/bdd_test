@@ -23,7 +23,7 @@ class ChatWindow(PageObject):
     def is_online(self):
         online_icon_element = self.base_xpath + Locators.STATUS_ELEMENT_ONLINE
         offline_icon_element = self.base_xpath \
-                               + Locators.STATUS_ELEMENT_OFFLINE
+            + Locators.STATUS_ELEMENT_OFFLINE
 
         if self.client.is_existing(online_icon_element):
             return True
