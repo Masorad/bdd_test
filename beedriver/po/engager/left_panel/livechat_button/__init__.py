@@ -7,9 +7,13 @@ class LiveChatButton(Button):
         button = self.find()
         status_attribute = button.get_attribute('class')
 
-        if 'online' not in status_attribute and 'offline' not in status_attribute:
+        if (
+            'online' not in status_attribute
+            and 'offline' not in status_attribute
+        ):
             raise Exception(
-                "Engager live-chat button has not any of 'online' nor 'offline' classes. Classes: ["
+                "Engager live-chat button has not any of 'online' nor "
+                + " 'offline' classes. Classes: ["
                 + ", ".join(status_attribute) + "]")
 
         return 'online' in status_attribute

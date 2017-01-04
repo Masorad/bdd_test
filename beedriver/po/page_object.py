@@ -2,7 +2,7 @@ class PageObject:
     def __init__(self, parent, base_xpath, dont_chain_xpath=False):
         self.parent = parent
         self.client = self.parent.client
-        if dont_chain_xpath == True:
+        if dont_chain_xpath:
             self.base_xpath = base_xpath
         else:
             self.base_xpath = self.parent.base_xpath + base_xpath

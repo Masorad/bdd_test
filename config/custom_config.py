@@ -6,7 +6,8 @@ office = {
     'login_password': 'TVu6N1xz',
 }
 
-livechat_url = 'https://vps-web-utils.awsbrandembassy.com/livechat-window-gherkin/'
+livechat_url = 'https://vps-web-utils.awsbrandembassy.com/' \
+               + 'livechat-window-gherkin/'
 
 brand_id = '1073'  # Gherkin's Selenium Brand
 

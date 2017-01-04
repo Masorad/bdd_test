@@ -4,4 +4,4 @@ class SendMessageFormLocators:
     MESSAGE_INPUT = "//textarea"
     SUBMIT_BUTTON = "//*[contains(@class,'reply-button')]"
 
-    NOTE_TAB_CLASS =  "//*[contains(@class,'note-tab')]"
+    NOTE_TAB_CLASS = "//*[contains(@class,'note-tab')]"

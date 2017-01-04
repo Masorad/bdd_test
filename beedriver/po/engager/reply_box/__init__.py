@@ -7,5 +7,9 @@ from .send_message_form.locators import SendMessageFormLocators
 
 class ReplyBox(PageObject):
     def init_child_objects(self):
-        self.send_message_form = SendMessageForm(self, SendMessageFormLocators.BASE_CLASS)
-        self.note_tab = Button(self, SendMessageFormLocators.NOTE_TAB_CLASS, True)
+        self.send_message_form = SendMessageForm(
+            self, SendMessageFormLocators.BASE_CLASS
+        )
+        self.note_tab = Button(
+            self, SendMessageFormLocators.NOTE_TAB_CLASS, True
+        )
