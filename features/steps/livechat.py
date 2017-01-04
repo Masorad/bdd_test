@@ -135,3 +135,9 @@ def click_on_close_session_item(context):
 def customer_sees_that_chat_session_is_closed(context):
     chat_window = context.browsers['livechat']['first'].po.livechat.chat_window
     chat_window.end_chat_message.wait_for_exist()
+
+@then('customer sees successufly sended transcript message')
+def customer_successufly_sended_transcript_message(context):
+    chat_window = context.browsers['livechat']['first'].po.livechat.chat_window
+    chat_window.sent_success_green_box.wait_for_exist()
+

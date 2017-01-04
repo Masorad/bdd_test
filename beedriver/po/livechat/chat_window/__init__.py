@@ -22,6 +22,7 @@ class ChatWindow(PageObject):
         self.send_message_form = SendMessageForm(self, Locators.REPLY_BOX)
         self.header = Header(self, HeaderLocators.HEADER)
         self.end_chat_message = PageObject(self, Locators.END_CHAT_BOX)
+        self.sent_success_green_box = PageObject(self, Locators.SENT_SUCCESS_GREEN_BOX)
 
     def is_online(self):
         online_icon_element = self.base_xpath + Locators.STATUS_ELEMENT_ONLINE
