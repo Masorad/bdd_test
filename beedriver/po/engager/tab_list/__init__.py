@@ -14,4 +14,6 @@ class TabList(PageObject):
 
     def open_incomming_message(self):
         tab_list = self.find()
-        tab_list.find_element_by_class_name(TabListLocators.INCOMING_MESSAGE_TAB_CLASS).click()
+        tab_list.find_element_by_class_name(
+            TabListLocators.INCOMING_MESSAGE_TAB_CLASS
+        ).click()

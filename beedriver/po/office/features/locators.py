@@ -1,7 +1,8 @@
 class FeaturesLocators:
     @classmethod
     def feature_by_url(cls, feature):
-        return "//tr[descendant::*[contains(@href,'/feature/{}/')]]".format(feature)
+        return "//tr[descendant::*[contains(@href,'/feature/{}/')]]" \
+            .format(feature)
 
     @classmethod
     def feature_status_by_url(cls, feature):

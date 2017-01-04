@@ -13,14 +13,17 @@ class ChatWindow(PageObject):
     def init_child_objects(self):
         self.offline_form = OfflineForm(self, Locators.OFFLINE_FORM)
         self.start_chat_form = StartChatForm(self, Locators.START_CHAT_FORM)
-        self.agent_profile = AgentProfile(self, AgentProfileLocator.AGENT_PROFILE)
+        self.agent_profile = AgentProfile(
+            self, AgentProfileLocator.AGENT_PROFILE
+        )
         self.conversation = Conversations(self, Locators.CONVERSATION)
         self.send_message_form = SendMessageForm(self, Locators.REPLY_BOX)
         self.header = PageObject(self, Locators.HEADER)
 
     def is_online(self):
         online_icon_element = self.base_xpath + Locators.STATUS_ELEMENT_ONLINE
-        offline_icon_element = self.base_xpath + Locators.STATUS_ELEMENT_OFFLINE
+        offline_icon_element = self.base_xpath \
+            + Locators.STATUS_ELEMENT_OFFLINE
 
         if self.client.is_existing(online_icon_element):
             return True
@@ -28,7 +31,8 @@ class ChatWindow(PageObject):
         if self.client.is_existing(offline_icon_element):
             return False
 
-        return self.header.is_existing() and 'ONLINE' in self.header.find().get_attribute('data-status')
+        return self.header.is_existing() \
+            and 'ONLINE' in self.header.find().get_attribute('data-status')
 
     def is_collapsed(self):
         locator = self.base_xpath + Locators.HEADER_COLLAPSED

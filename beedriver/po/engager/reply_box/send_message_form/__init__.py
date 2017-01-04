@@ -6,5 +6,9 @@ from .locators import SendMessageFormLocators
 
 class SendMessageForm(PageObject):
     def init_child_objects(self):
-        self.message_input = TextInput(self, SendMessageFormLocators.MESSAGE_INPUT, True)
-        self.submit_button = Button(self, SendMessageFormLocators.SUBMIT_BUTTON, True)
+        self.message_input = TextInput(
+            self, SendMessageFormLocators.MESSAGE_INPUT, True
+        )
+        self.submit_button = Button(
+            self, SendMessageFormLocators.SUBMIT_BUTTON, True
+        )
