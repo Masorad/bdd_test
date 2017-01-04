@@ -13,4 +13,3 @@ class Header(PageObject):
 
     def toggle_chat_menu(self):
         self.chat_menu_toggle.click()
-
