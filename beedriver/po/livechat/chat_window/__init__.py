@@ -9,6 +9,8 @@ from .header.locators import HeaderLocators
 from .offline_form import OfflineForm
 from .send_message_form import SendMessageForm
 from .start_chat_form import StartChatForm
+from beedriver.po.elements.button import Button
+from beedriver.po.elements.text_input import TextInput
 
 
 class ChatWindow(PageObject):
@@ -22,7 +24,30 @@ class ChatWindow(PageObject):
         self.send_message_form = SendMessageForm(self, Locators.REPLY_BOX)
         self.header = Header(self, HeaderLocators.HEADER)
         self.end_chat_message = PageObject(self, Locators.END_CHAT_BOX)
-        self.sent_success_green_box = PageObject(self, Locators.SENT_SUCCESS_GREEN_BOX)
+        self.settings_expander = Button(
+            self, Locators.SETTINGS_EXPANDER
+        )
+        self.end_chat = Button(
+            self, Locators.END_CHAT
+        )
+        self.send_transcript_icon = Button(
+            self, Locators.SEND_TRANSCRIPT_ICON
+        )
+        self.send_transcript_link = Button(
+            self, Locators.SEND_TRANSCRIPT_LINK
+        )
+        self.send_transcript_email_input = TextInput(
+            self, Locators.SEND_TRANSCRIPT_EMAIL_INPUT
+        )
+        self.send_transcript_email_send_button = Button(
+            self, Locators.SEND_TRANSCRIPT_EMAIL_SEND_BUTTON
+        )
+        self.send_transcript_close_button = Button(
+            self, Locators.SEND_TRANSCRIPT_CLOSE_BUTTON
+        )
+        self.transcript_sent_success = PageObject(
+            self, Locators.TRANSCRIPT_SENT_SUCCESS
+        )
 
     def is_online(self):
         online_icon_element = self.base_xpath + Locators.STATUS_ELEMENT_ONLINE

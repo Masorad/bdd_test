@@ -139,5 +139,41 @@ def customer_sees_that_chat_session_is_closed(context):
 @then('customer sees successufly sended transcript message')
 def customer_successufly_sended_transcript_message(context):
     chat_window = context.browsers['livechat']['first'].po.livechat.chat_window
-    chat_window.sent_success_green_box.wait_for_exist()
+    chat_window.transcript_sent_success.wait_for_exist()
 
+
+@when(u'customer opens transcript form')
+def step_impl(context):
+    chat_window = context.browsers['livechat']['first'].po.livechat.chat_window
+    chat_window.settings_expander.click()
+    time.sleep(1)
+    chat_window.send_transcript_icon.click()
+
+@when(u'customer fills e-mail "{email}"')
+def step_impl(context, email):
+    chat_window = context.browsers['livechat']['first'].po.livechat.chat_window
+    chat_window.send_transcript_email_input.set(email)
+
+
+@when(u'customer clicks on send button')
+def step_impl(context):
+    chat_window = context.browsers['livechat']['first'].po.livechat.chat_window
+    chat_window.send_transcript_email_send_button.click()
+
+@then(u'customer closes the transcript form')
+def step_impl(context):
+    chat_window = context.browsers['livechat']['first'].po.livechat.chat_window
+    chat_window.send_transcript_close_button.click()
+
+@then(u'customer clicks on end chat button')
+def step_impl(context):
+    chat_window = context.browsers['livechat']['first'].po.livechat.chat_window
+    chat_window.settings_expander.click()
+    time.sleep(1)
+    chat_window.end_chat.click()
+
+@then(u'customer clicks on send transcript link')
+def step_impl(context):
+    chat_window = context.browsers['livechat']['first'].po.livechat.chat_window
+    chat_window.send_transcript_link.wait_for_exist()
+    chat_window.send_transcript_link.click()
