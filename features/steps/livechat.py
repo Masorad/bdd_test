@@ -118,3 +118,20 @@ def agent_refreshes_livechat_browser(context):
     iframe_id = livechat_browser.find_element_by_class_name(LiveChatLocators.CHAT_WINDOW_IFRAME_CLASS_NAME)
     livechat_browser.switch_to_frame(iframe_id)
     time.sleep(3)
+
+@step('customer opens chat menu')
+def customer_opens_chat_menu(context):
+    header = context.browsers['livechat']['first'].po.livechat.chat_window.header
+    header.toggle_chat_menu()
+    header.wait_for_exist()
+
+@step('click on close session item')
+def click_on_close_session_item(context):
+    item = context.browsers['livechat']['first'].po.livechat.chat_window.header.chat_menu.close_chat_menu_item
+    item.click()
+    time.sleep(1)
+
+@then('customer sees that chat session is "Closed"')
+def customer_sees_that_chat_session_is_closed(context):
+    chat_window = context.browsers['livechat']['first'].po.livechat.chat_window
+    chat_window.end_chat_message.wait_for_exist()

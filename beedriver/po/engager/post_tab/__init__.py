@@ -1,8 +1,13 @@
 from beedriver.po.page_object import PageObject
+from beedriver.po.elements.button import Button
 from .locators import PostTabLocators
 
 
 class PostTab(PageObject):
+
+    def init_child_objects(self):
+        self.close_button = Button(self, PostTabLocators.CLOSE_CHAT_SESSION_BUTTON)
+
     def get_last_livechat_message(self):
         tab_workspace = self.find()
         message_elements = tab_workspace.find_elements_by_class_name(
@@ -45,3 +50,13 @@ class PostTab(PageObject):
         return ghost_message.find_element_by_class_name(
             PostTabLocators.LIVE_CHAT_MESSAGE_TEXT_CLASS
         ).text
+
+    def get_is_livechat_session_closed(self):
+        tab_workspace = self.find()
+        status_message = tab_workspace\
+            .find_element_by_class_name(PostTabLocators.STATUS_MESSAGE)
+
+        return status_message.text == 'Chat session is closed.'
+
+    def close_chat_session(self):
+        self.close_button.click()
