@@ -13,4 +13,13 @@ class ChatWindowLocators:
 
     CONVERSATION = "//*[@class='scroll-box']"
     REPLY_BOX = "//*[@class='reply-box']"
+
     END_CHAT_BOX = "//*[contains(@class,'be-chat__content--session-closed')]"
+    SETTINGS_EXPANDER = "//*[contains(@class,'icon--setting')]"
+    END_CHAT = "//*[contains(@id, 'endchat')]"
+    SEND_TRANSCRIPT_ICON = "//*[contains(@class, 'dropdown-menu')]/li[2]"
+    SEND_TRANSCRIPT_LINK = "//*[contains(@class, 'be-chat__content--session-closed')]/p/a"
+    SEND_TRANSCRIPT_EMAIL_INPUT = "//input[contains(@type, 'email')]"
+    SEND_TRANSCRIPT_EMAIL_SEND_BUTTON = "//button[contains(@type, 'submit')]"
+    SEND_TRANSCRIPT_CLOSE_BUTTON = "//a[contains(@class, 'close-icon')]"
+    TRANSCRIPT_SENT_SUCCESS = "//*[contains(@class, 'green-box')]"

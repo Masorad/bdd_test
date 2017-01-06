@@ -4,3 +4,4 @@ parse-type==0.3.4
 pycodestyle==2.2.0
 selenium==2.53.6
 six==1.10.0
+ipdb==0.10.1

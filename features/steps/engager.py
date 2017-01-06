@@ -130,3 +130,25 @@ def agent_should_see_note(context, note_text):
 def agent_should_see_that_chat_session_is_closed(context):
     engager = context.browsers['engager']['first'].po.engager
     assert engager.post_tab.get_is_livechat_session_closed()
+
+@when(u'agent clicks on send transcript link')
+def step_impl(context):
+    engager = context.browsers['engager']['first'].po.engager
+
+    engager.reply_box.send_chat_link.click()
+
+@when(u'agent clicks on send transcript button')
+def step_impl(context):
+    engager = context.browsers['engager']['first'].po.engager
+
+    engager.reply_box.send_email_link.click()
+
+@when(u'agent fills e-mail "{email}"')
+def step_impl(context, email):
+    engager = context.browsers['engager']['first'].po.engager
+    engager.reply_box.email_input.set(email)
+
+@then(u'agent sees transcript sent message')
+def step_impl(context):
+    engager = context.browsers['engager']['first'].po.engager
+    assert engager.reply_box.has_sent_transcript_sucessfully() is True
