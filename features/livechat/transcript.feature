@@ -10,6 +10,7 @@ Feature: Transcript of the livechat can be sent
     When customer submits online form in chat window
     Then chat window should show conversation interface
     When customer sends message "Hello, I have a problem. Can you help me?"
+    And "agent" waits for "3" seconds
     And agent opens chat session
     And agent clicks on send transcript link
     And agent fills e-mail "ruda.pruda@brandembassy.com"
