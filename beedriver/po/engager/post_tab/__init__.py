@@ -14,7 +14,6 @@ class PostTab(PageObject):
 
         return len(posts)
 
-
     def get_last_livechat_message(self):
         tab_workspace = self.find()
         message_elements = tab_workspace.find_elements_by_class_name(
