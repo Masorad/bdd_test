@@ -4,17 +4,6 @@ from selenium.common.exceptions import NoSuchElementException
 
 class MyView(Button):
 
-    def exists(self):
-
-        try:
-            self.find()
-
-            return True
-
-        except NoSuchElementException:
-
-            return False
-
     def is_active(self):
 
         view = self.find()

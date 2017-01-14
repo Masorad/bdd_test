@@ -17,7 +17,7 @@ def agent_should_see_view_with_name(context, view_name):
     my_views = context.browsers['engager']['first'].po.engager.left_panel.my_views
     my_view = my_views.get_my_view_by_name(view_name)
 
-    assert my_view.exists()
+    assert my_view.is_existing()
 
 
 @then('view with name "{view_name}" is "{view_state}"')
@@ -29,11 +29,7 @@ def view_with_name_is_in_given_state(context, view_name, view_state):
     my_views = context.browsers['engager']['first'].po.engager.left_panel.my_views
     my_view = my_views.get_my_view_by_name(view_name)
 
-    if view_state == 'active':
-        assert my_view.is_active() is True
-    else:
-        assert my_view.is_active() is False
-
+    assert my_view.is_active() == (view_state == 'active')
 
 @when(u'agent clicks on view "{view_name}"')
 def agent_clicks_on_view(context, view_name):
