@@ -8,6 +8,13 @@ class PostTab(PageObject):
     def init_child_objects(self):
         self.close_button = Button(self, PostTabLocators.CLOSE_CHAT_SESSION_BUTTON)
 
+    def get_number_of_posts(self):
+        tab_workspace = self.find()
+        posts = tab_workspace.find_elements_by_class_name(PostTabLocators.ITEMS_IN_POST_LIST_CLASS)
+
+        return len(posts)
+
+
     def get_last_livechat_message(self):
         tab_workspace = self.find()
         message_elements = tab_workspace.find_elements_by_class_name(
