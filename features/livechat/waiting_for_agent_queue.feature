@@ -1,20 +1,25 @@
 Feature: when agents are overloaded, customers waits in queue
 
-  @skip
   Scenario: When agents are overloaded, customers waits in queue
-    Given brand has maximum sessions per agent se to "1"
-    And brand is "online" for chat
-    When customer "Ruda Pruda" opens brand page
-    And "Ruda Pruda" waits for "1" seconds
-    And customer "Ruda Pruda" "expands" chat window
-    And customer "Ruda Pruda" fills "Ruda Pruda" into name input
-    Then "Ruda Pruda" chat window should show conversation interface
+    Given brand is "online" for chat
+    And brand has maximum sessions per agent se to "1"
+    And "customer" waits for "100" seconds
 
-    When customer "Pepa z Depa" opens brand page
-    And "Pepa z Depa" waits for "1" seconds
-    And customer "Pepa z Depa" "expands" chat window
-    And customer "Pepa z Depa" fills "Ruda Pruda" into name input
-    Then "Pepa z Depa" should be in waiting queue at "1" posion
+    When customer opens brand page
+    And "customer" waits for "2" seconds
+    And customer "expands" chat window
+    And "customer" waits for "2" seconds
+    And customer fills "Ruda Pruda" into name input
+    When customer submits online form in chat window
+    Then chat window should show conversation interface
+
+    When customer opens brand page
+    And "customer" waits for "2" seconds
+    And customer "expands" chat window
+    And "customer" waits for "2" seconds
+    And customer fills "Ruda Pruda" into name input
+    When customer submits online form in chat window
+    Then chat window should show conversation interface
 
     When "Ruda Pruda" ends chat session
     Then "Pepa z Depa" chat window should show conversation interface

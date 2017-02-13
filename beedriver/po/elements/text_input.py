@@ -10,6 +10,12 @@ class TextInput(PageObject):
         self.find().send_keys(value)
         return self
 
+    def enable(self):
+        self.client.execute_script(
+            "arguments[0].removeAttribute('disabled');",
+            self.find()
+        )
+
     def set(self, value):
         elem = self.find()
         elem.clear()

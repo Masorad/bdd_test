@@ -1,3 +1,4 @@
+from beedriver.po.engager.livechat_settings import LiveChatSettings
 from beedriver.po.page_object import PageObject
 from beedriver.po.widgets.tracy import Tracy
 from beedriver.po.widgets.tracy.locators import TracyLocators
@@ -20,6 +21,7 @@ class Engager(PageObject):
         self.post_tab = PostTab(self, PostTabLocators.POST_TAB_WORKSPACE)
         self.reply_box = ReplyBox(self, ReplyBoxLocators.REPLY_BOX)
         self.tracy = Tracy(self, TracyLocators.WRAPPER)
+        self.livechat_settings = LiveChatSettings(self, '')
 
     def load(self):
         self.client.get(self.client.config.engager_url)
