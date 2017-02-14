@@ -1,8 +1,6 @@
 class PostTabLocators:
     POST_TAB_WORKSPACE = "//*[contains(@class,'main-workspace')]"
 
-    ITEMS_IN_POST_LIST_CLASS = 'post-n'
-
     LIVE_CHAT_MESSAGE_CLASS = 'bubble-wrap'
     LIVE_CHAT_MESSAGE_TEXT_CLASS = 'bubble__content'
     LIVE_CHAT_GHOST_MESSAGE_CLASS = 'bubble--ghost'

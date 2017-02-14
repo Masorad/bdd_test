@@ -1,7 +1,5 @@
-from beedriver.po.page_object import PageObject
+from beedriver.po.elements.input import Input
 
 
-class Button(PageObject):
-    def click(self):
-        self.find().click()
-        return self
+class Button(Input):
+    pass

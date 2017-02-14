@@ -14,7 +14,7 @@ Feature: chat session can be opened and closed
     Then agent should receive chat session from "Ruda Pruda" with "1" message
     When agent opens chat session
     And customer opens chat menu
-    And click on close session item
+    And customer clicks on close session item
     Then customer sees that chat session is "Closed"
     And agent should see that chat session is "Closed"
 

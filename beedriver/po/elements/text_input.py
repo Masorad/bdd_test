@@ -1,7 +1,7 @@
-from beedriver.po.page_object import PageObject
+from beedriver.po.elements.input import Input
 
 
-class TextInput(PageObject):
+class TextInput(Input):
     def clear(self):
         self.find().clear()
         return self

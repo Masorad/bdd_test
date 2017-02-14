@@ -1,16 +1,18 @@
+from beedriver.po.elements.button import Button
+from beedriver.po.elements.text_input import TextInput
 from beedriver.po.livechat.chat_window.agent_profile import AgentProfile
+from beedriver.po.livechat.chat_window.info_panel import InfoPanel
+from beedriver.po.livechat.chat_window.info_panel.locators import InfoPanelLocator
 from beedriver.po.page_object import PageObject
 from .agent_profile import AgentProfile
 from .agent_profile.locators import AgentProfileLocator
 from .conversations import Conversations
-from .locators import ChatWindowLocators as Locators
 from .header import Header
 from .header.locators import HeaderLocators
+from .locators import ChatWindowLocators as Locators
 from .offline_form import OfflineForm
 from .send_message_form import SendMessageForm
 from .start_chat_form import StartChatForm
-from beedriver.po.elements.button import Button
-from beedriver.po.elements.text_input import TextInput
 
 
 class ChatWindow(PageObject):
@@ -20,6 +22,7 @@ class ChatWindow(PageObject):
         self.agent_profile = AgentProfile(
             self, AgentProfileLocator.AGENT_PROFILE
         )
+        self.info_panel = InfoPanel(self, InfoPanelLocator.INFO)
         self.conversation = Conversations(self, Locators.CONVERSATION)
         self.send_message_form = SendMessageForm(self, Locators.REPLY_BOX)
         self.header = Header(self, HeaderLocators.HEADER)
