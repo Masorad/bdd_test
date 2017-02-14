@@ -8,6 +8,12 @@ class Input(PageObject):
             self.find()
         )
 
+    def disable(self):
+        self.client.execute_script(
+            "arguments[0].setAttribute('disabled', 'disabled');",
+            self.find()
+        )
+
     def makeVisible(self):
         self.client.execute_script(
             "arguments[0].style.display = 'block';",

@@ -3,7 +3,7 @@ Feature: when agents are overloaded, customers waits in queue
   Scenario: When agents are overloaded, customers waits in queue
     Given brand is "online" for chat
     And agent has no open chat sessions
-    And brand has maximum sessions per agent se to "1"
+    And brand has maximum sessions per agent set to "1"
 
     When "first" customer opens brand page
     And "customer" waits for "2" seconds
@@ -24,3 +24,4 @@ Feature: when agents are overloaded, customers waits in queue
     When "first" customer ends chat session
     Then "second" chat window should show conversation interface
 
+    When brand has maximum sessions per agent set to "off"

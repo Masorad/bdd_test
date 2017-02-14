@@ -167,7 +167,7 @@ def step_impl(context):
     assert engager.reply_box.has_sent_transcript_sucessfully() is True
 
 
-@step('brand has maximum sessions per agent se to "{number}"')
+@step('brand has maximum sessions per agent set to "{number}"')
 def step_impl(context, number):
     engager = context.browsers['engager']['first'].po.engager
     engager.livechat_settings.basic.load()

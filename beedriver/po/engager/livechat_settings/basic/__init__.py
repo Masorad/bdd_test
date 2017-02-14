@@ -14,7 +14,11 @@ class Basic(PageObject):
         self.client.get(self.client.config.engager_url + BasicLocators.url)
 
     def change_maximum_sessions_per_agent(self, number):
-        self.max_session_per_agent_input.enable()
-        self.max_session_per_agent_input.set(number)
+        if number == 'off':
+            self.max_session_per_agent_input.set('')
+            self.max_session_per_agent_input.disable()
+        else:
+            self.max_session_per_agent_input.enable()
+            self.max_session_per_agent_input.set(number)
         self.sumbmit_button.makeVisible()
         self.sumbmit_button.click()
