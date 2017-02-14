@@ -1,11 +1,12 @@
+from selenium.webdriver.remote.webelement import WebElement
+
 from beedriver.po.page_object import PageObject
 
 
 class InfoPanel(PageObject):
-    def is_customer_in_queue_at(self, number):
+    def get_info_text(self):
         self.wait_for_exist()
-        element = self.find()
-        print('---')
-        print(element.find_by_xpath('/div[1]/div[1]/b/span'))
-        print('---')
-        print('---')
+        element = self.find()  # type: WebElement
+        message_element = element.find_element_by_tag_name('span')  # type: WebElement
+
+        return message_element.text

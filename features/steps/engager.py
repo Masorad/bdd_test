@@ -177,10 +177,10 @@ def step_impl(context, number):
 @step('agent has no open chat sessions')
 def step_impl(context):
     engager = context.browsers['engager']['first'].po.engager
-    context.execute_steps('When agent clicks on view "Livechat - ALL NOT CLOSED"')
+    context.execute_steps('When agent clicks on view "Livechat - ALL MY NOT CLOSED"')
 
     while engager.post_list.get_number_of_posts() > 0:
         engager.post_list.check_all_box.makeVisible()
         engager.post_list.check_all_box.check()
         engager.post_list.set_as_resolved_button.click()
-        context.execute_steps('When agent clicks on view "Livechat - ALL NOT CLOSED"')
+        context.execute_steps('When agent clicks on view "Livechat - ALL MY NOT CLOSED"')

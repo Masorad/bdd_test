@@ -151,14 +151,24 @@ def agent_refreshes_livechat_browser(context):
 
 @step('customer opens chat menu')
 def customer_opens_chat_menu(context):
-    header = context.browsers['livechat']['first'].po.livechat.chat_window.header
+    context.execute_steps('Then "first" customer opens chat menu')
+
+
+@step('"{identifier}" customer opens chat menu')
+def customer_opens_chat_menu(context, identifier):
+    header = context.browsers['livechat'][identifier].po.livechat.chat_window.header
     header.toggle_chat_menu()
     header.wait_for_exist()
 
 
-@step('click on close session item')
+@step('customer clicks on close session item')
 def click_on_close_session_item(context):
-    item = context.browsers['livechat']['first'].po.livechat.chat_window.header.chat_menu.close_chat_menu_item
+    context.execute_steps('Then "first" customer clicks on close session item')
+
+
+@step('"{identifier}" customer clicks on close session item')
+def click_on_close_session_item(context, identifier):
+    item = context.browsers['livechat'][identifier].po.livechat.chat_window.header.chat_menu.close_chat_menu_item
     item.click()
     time.sleep(1)
 
@@ -220,4 +230,10 @@ def step_impl(context):
 def step_impl(context, identifier, number):
     chat_window = context.browsers['livechat'][identifier].po.livechat.chat_window
     chat_window.info_panel.wait_for_exist()
-    chat_window.info_panel.is_customer_in_queue_at(number)
+    assert chat_window.info_panel.get_info_text() == "Waiting for agent. You're " + number + " in queue."
+
+
+@step('"{identifier}" customer ends chat session')
+def step_impl(context, identifier):
+    context.execute_steps('Then "' + identifier + '" customer opens chat menu')
+    context.execute_steps('Then "' + identifier + '" customer clicks on close session item')
