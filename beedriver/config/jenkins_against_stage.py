@@ -3,7 +3,8 @@
 #            It can interfere with Jenkins Job.
 #
 
-engager_url = 'http://engager-stage.brandembassy.com'
+engager_url = 'http://engager-stage.brandembassy.com/'
+cron_standard_url = 'http://cron-standard-stage.brandembassy.com/'
 
 office = {
     'url': 'http://office-stage.brandembassy.com',

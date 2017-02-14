@@ -1,4 +1,5 @@
-engager_url = 'http://be.com'
+engager_url = 'http://be.com/'
+cron_standard_url = 'http://cron-standard.be.com/'
 
 office = {
     'url': 'http://private.be.com',
