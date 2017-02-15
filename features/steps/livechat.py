@@ -8,7 +8,7 @@ from beedriver.po.livechat import LiveChatLocators
 
 @step('customer opens brand page')
 def step_impl(context):
-    context.execute_steps('"first" customer opens brand page')
+    context.execute_steps('Then "first" customer opens brand page')
 
 
 @step('"{identifier}" customer opens brand page')
@@ -22,7 +22,7 @@ def customer_opens_brand_page(context, identifier):
 
 @step('customer "{resize_action}" chat window')
 def step_impl(context, resize_action):
-    context.execute_steps('"first" customer "' + resize_action + '" chat window')
+    context.execute_steps('Then "first" customer "' + resize_action + '" chat window')
 
 
 @step('"{identifier}" customer "{resize_action}" chat window')
@@ -39,7 +39,7 @@ def step_impl(context, identifier, resize_action):
 
 @step('customer fills "{customers_name}" into name input')
 def step_impl(context, customers_name):
-    context.execute_steps('"first" customer fills "' + customers_name + '" into name input')
+    context.execute_steps('Then "first" customer fills "' + customers_name + '" into name input')
 
 
 @step('"{identifier}" customer fills "{customers_name}" into name input')
@@ -52,10 +52,10 @@ def step_impl(context, identifier, customers_name):
 
 @when('customer submits online form in chat window')
 def step_impl(context):
-    context.execute_steps('"first" customer submits online form in chat window')
+    context.execute_steps('Then "first" customer submits online form in chat window')
 
 
-@when('"{identifier}" customer submits online form in chat window')
+@step('"{identifier}" customer submits online form in chat window')
 def customer_submits_online_form_in_chat_window(context, identifier):
     form = context.browsers['livechat'][identifier].po.livechat.chat_window.start_chat_form
     form.wait_for_exist()
@@ -109,7 +109,7 @@ def step_impl(context, status):
 
 @then('chat window should show conversation interface')
 def step_impl(context):
-    context.execute_steps('"first" chat window should show conversation interface')
+    context.execute_steps('Then "first" chat window should show conversation interface')
 
 
 @then('"{identifier}" chat window should show conversation interface')
