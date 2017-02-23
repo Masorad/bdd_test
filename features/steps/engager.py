@@ -85,14 +85,14 @@ def agent_opens_chat_session(context):
 
 
 @then('agent should receive customers message "{message_text}"')
-def agent_should_receive_message(context, message_text):
+def agent_should_receive_customers_message(context, message_text):
     engager = context.browsers['engager']['first'].po.engager
 
     assert engager.post_tab.get_last_livechat_message() == message_text
 
 
 @then('agent should receive ghost message "{message_text}"')
-def agent_should_receive_message(context, message_text):
+def agent_should_receive_ghost_message(context, message_text):
     engager = context.browsers['engager']['first'].po.engager
 
     assert engager.post_tab.get_last_livechat_message() == message_text
@@ -142,40 +142,40 @@ def agent_should_see_that_chat_session_is_closed(context):
 
 
 @step('agent clicks on send transcript link')
-def step_impl(context):
+def agent_clicks_on_send_transcript_link(context):
     engager = context.browsers['engager']['first'].po.engager
 
     engager.reply_box.send_chat_link.click()
 
 
 @step('agent clicks on send transcript button')
-def step_impl(context):
+def agent_clicks_on_send_transcript_button(context):
     engager = context.browsers['engager']['first'].po.engager
 
     engager.reply_box.send_email_link.click()
 
 
 @step('agent fills e-mail "{email}"')
-def step_impl(context, email):
+def agent_fills_email(context, email):
     engager = context.browsers['engager']['first'].po.engager
     engager.reply_box.email_input.set(email)
 
 
 @then('agent sees transcript sent message')
-def step_impl(context):
+def agent_sees_transcript_sent_message(context):
     engager = context.browsers['engager']['first'].po.engager
     assert engager.reply_box.has_sent_transcript_sucessfully() is True
 
 
 @step('brand has maximum sessions per agent set to "{number}"')
-def step_impl(context, number):
+def brand_has_maxium_sessions_per_agent_set_to(context, number):
     engager = context.browsers['engager']['first'].po.engager
     engager.livechat_settings.basic.load()
     engager.livechat_settings.basic.change_maximum_sessions_per_agent(number)
 
 
 @step('agent has no open chat sessions')
-def step_impl(context):
+def agent_has_no_open_chat_session(context):
     engager = context.browsers['engager']['first'].po.engager
     context.execute_steps('When agent clicks on view "Livechat - ALL MY NOT CLOSED"')
 
@@ -184,3 +184,5 @@ def step_impl(context):
         engager.post_list.check_all_box.check()
         engager.post_list.set_as_resolved_button.click()
         context.execute_steps('When agent clicks on view "Livechat - ALL MY NOT CLOSED"')
+
+    engager.client.get(engager.client.config.reset_livechat_queue_url)
