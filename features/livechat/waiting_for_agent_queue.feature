@@ -1,5 +1,6 @@
 Feature: when agents are overloaded, customers waits in queue
 
+  @skip
   Scenario: When agents are overloaded, customers waits in queue
     Given brand is "online" for chat
     And agent has no open chat sessions
