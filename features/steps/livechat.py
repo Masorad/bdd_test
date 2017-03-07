@@ -50,6 +50,17 @@ def step_impl(context, identifier, customers_name):
     form.submit_button.click()
 
 
+# ----------------------------------------------------------------------------------------------------
+@step('customer fills offline form "{customers_name}", "{customers_email}", "{customers_message}"')
+def step_impl(context, customers_name, customers_email, customers_message):
+    form = context.browsers['livechat']['first'].po.livechat.chat_window.offline_form
+    form.wait_for_exist()
+    form.name.set(customers_name)
+    form.email.set(customers_email)
+    form.message.set(customers_message)
+    form.submit_button.click()
+
+
 @when('customer submits online form in chat window')
 def step_impl(context):
     context.execute_steps('Then "first" customer submits online form in chat window')
